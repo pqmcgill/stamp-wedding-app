@@ -39,11 +39,16 @@ app.use(passport.initialize());
 
 loadStrategy(passport);
 
+// serve static files under build folder
+app.use(express.static(__dirname + '/build'));
+
+// handle api calls
+app.use('/api', api());
+
+// pushstate support
 app.get('*', (req, res) => {
   res.sendfile(__dirname + '/build/index.html');
 });
-
-app.use('/api', api());
 
 app.server = app.listen(PORT);
 console.log('Listening on port ', + PORT);
