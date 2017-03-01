@@ -33,7 +33,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && sw-precache --root='build/' --static-file-globs='build/**/!(*map*)'",
+    "build": "PUBLIC_URL='/' react-scripts build && sw-precache --root='build/' --static-file-globs='build/**/!(*map*)'",
     "test": "react-scripts test --env=jsdom",
     "test_once": "CI=true npm run test",
     "eject": "react-scripts eject",
