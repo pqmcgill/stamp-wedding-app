@@ -39,8 +39,9 @@ app.use(passport.initialize());
 
 loadStrategy(passport);
 
-app.get('/*', (req, res) => {
-  res.sendfile(__dirname + '/build/index.html');
+app.get('*', (req, res) => {
+  console.log(__dirname);
+  res.sendfile(__dirname + '/../build/index.html');
 });
 
 app.use('/api', api());
