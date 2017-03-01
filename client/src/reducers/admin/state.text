@@ -1,0 +1,18 @@
+admin: {
+	guests: {
+		loading: bool,
+		byUsername: {
+			'123ABC': {
+				name: 'user1',
+				password: 'pass1',
+				plusOne: 'my wife',
+				affiliation: (PAT_FRIEND | PAT_FAM | SAM_FRIEND | SAM_FAM | OTHER)
+			}, 
+			...
+		},
+		all: [
+			'123ABC',
+			...
+		]
+	}
+}

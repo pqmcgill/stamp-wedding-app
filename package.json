@@ -1,0 +1,22 @@
+{
+  "name": "wedding-app",
+  "version": "1.0.0",
+  "description": "fullstack wedding rsvp application",
+  "main": "server.js",
+  "scripts": {
+    "test": "cd ./client && npm run test_once && cd ../server && npm run test_once",
+    "test_watch": "(cd ./client && yarn test && cd ../) & (ttab -a iTerm2 -w 'cd ./server; yarn test; cd ../')",
+    "server_dev": "(ttab -a iTerm2 -w 'cd ./server; yarn start;')",
+    "client_dev": "(ttab -a iTerm2 -w 'cd ./client; yarn start;')",
+    "dev": "yarn server_dev && yarn client_dev && yarn test_watch"
+  },
+  "author": "Patrick McGill",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.23.0",
+    "babel-core": "^6.23.1",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-stage-0": "^6.22.0"
+  },
+  "dependencies": {}
+}

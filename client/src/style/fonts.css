@@ -1,0 +1,34 @@
+@font-face {
+	font-family: 'PrincessSofia';
+	src: url('../fonts/Princess_Sofia/PrincessSofia-Regular.ttf');
+}
+
+@font-face {
+	font-family: 'QuicksandBold';
+	font-weight: 700;
+	src: url('../fonts/Quicksand/Quicksand-Bold.ttf');
+}
+
+@font-face {
+	font-family: 'QuicksandRegular';
+	font-weight: 400;
+	src: url('../fonts/Quicksand/Quicksand-Regular.ttf');
+}
+
+@font-face {
+	font-family: 'QuicksandMedium';
+	font-weight: 500;
+	src: url('../fonts/Quicksand/Quicksand-Medium.ttf');
+}
+
+@font-face {
+	font-family: 'QuicksandLight';
+	font-weight: 200;
+	src: url('../fonts/Quicksand/Quicksand-Light.ttf');
+}
+
+.princessSofia { font-family: 'PrincessSofia'; }
+.quicksandRegular { font-family: 'QuicksandRegular'; }
+.quicksandLight { font-family: 'QuicksandLight'; }
+.quicksandMedium { font-family: 'QuicksandMedium'; }
+.quicksandBold { font-family: 'QuicksandBold'; }

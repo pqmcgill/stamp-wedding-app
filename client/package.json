@@ -1,0 +1,45 @@
+{
+  "name": "wedding",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "enzyme": "^2.4.1",
+    "fetch-mock": "^5.5.0",
+    "gh-pages": "^0.12.0",
+    "nock": "^8.1.0",
+    "react-addons-test-utils": "^15.3.2",
+    "react-scripts": "^0.9.0",
+    "sinon": "^1.17.6",
+    "sw-precache": "^5.0.0"
+  },
+  "dependencies": {
+    "aphrodite": "^1.1.0",
+    "google-map-react-redo": "^0.22.3",
+    "guid": "0.0.12",
+    "material-ui": "^0.16.5",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "react-flexbox-grid-aphrodite": "^1.0.3",
+    "react-redux": "^4.4.5",
+    "react-router-dom": "next",
+    "react-tap-event-plugin": "^2.0.1",
+    "redux": "^3.6.0",
+    "redux-form": "^6.0.1",
+    "redux-form-material-ui": "^4.1.2",
+    "redux-localstorage": "^0.4.1",
+    "redux-mock-store": "^1.2.1",
+    "redux-thunk": "^2.1.0",
+    "reselect": "^2.5.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build && sw-precache --root='build/' --navigateFallback='/404.html' --static-file-globs='build/**/!(*map*)'",
+    "test": "react-scripts test --env=jsdom",
+    "test_once": "CI=true npm run test",
+    "eject": "react-scripts eject",
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d build"
+  },
+  "homepage": "https://pqmcgill.github.io/shh-super-secret-wedding-site",
+  "proxy": "http://localhost:4000"
+}

@@ -1,0 +1,25 @@
+.guestManagement {
+  margin: 10px;
+  max-height: 500px;
+  overflow: hidden;
+}
+
+.listBody {
+  max-height: 0;
+  overflow: scroll;
+}
+
+.listBody.expanded {
+  max-height: 1000000px;
+}
+
+.guestManagement h2 {
+  padding: 24px 24px 24px 24px;
+  margin: 0;
+  background-color: #e8e8e8; 
+  font-weight: 200;
+}
+
+.guestManagement .listBody {
+  overflow: scroll;
+}
