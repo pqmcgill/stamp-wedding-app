@@ -6,8 +6,8 @@ import morgan from 'morgan';
 import bodyParser from 'body-parser';
 import config from 'config';
 
-import loadStrategy from './middleware/passport';
-import api from './api';
+import loadStrategy from './app/middleware/passport';
+import api from './app/api';
 
 const PORT = process.env.PORT || config.port;
 
@@ -40,8 +40,7 @@ app.use(passport.initialize());
 loadStrategy(passport);
 
 app.get('*', (req, res) => {
-  console.log(__dirname);
-  res.sendfile(__dirname + '/../build/index.html');
+  res.sendfile(__dirname + '/build/index.html');
 });
 
 app.use('/api', api());

@@ -9,8 +9,8 @@
   "scripts": {
     "test": "NODE_ENV=test mocha -w --recursive --timeout 10000 --compilers js:babel-register",
     "test_once": "NODE_ENV=test mocha --recursive --timeout 10000 --compilers js:babel-register",
-    "start_dev": "NODE_ENV=dev nodemon -w app --exec \"babel-node app/server.js\"",
-    "start": "babel-node app/server.js"
+    "start_dev": "NODE_ENV=dev nodemon -w app --exec \"babel-node ./index.js\"",
+    "start": "babel-node ./index.js"
   },
   "author": "",
   "license": "ISC",
