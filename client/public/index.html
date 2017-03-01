@@ -14,6 +14,7 @@
     <!-- Start service worker registration -->
     <script type="application/javascript">
     if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
         navigator.serviceWorker.register('service-worker.js')
           .then(() => {
             console.log('server worker registered');
@@ -22,7 +23,8 @@
             console.warn(ex);
             console.warn('(This warning can be safely ignored outside of the production build.)');
           });
-      }
+      })
+    }
     </script>
     <!-- End service worker registration -->
   </body>

@@ -1,8 +1,11 @@
 module.exports = {
+  stripPrefix: 'build/',
   staticFileGlobs: [
-    'build/**/!(*map*)'
+    'build/*.html',
+    'build/manifext.json',
+    'build/static/**/!(*map*)'
   ],
-  root: 'build/',
-  navigateFallback: '/index.html',
-  navigateFallbackWhitelist: [/^(?!.*\.html$|\/data\/).*/],
+  navigateFallback: 'index.html',
+  dontCacheBustUrlsMatching: /\.\w{8}\./,
+  swFilePath: 'build/service-worker.js'
 };

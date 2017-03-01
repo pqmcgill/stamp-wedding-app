@@ -37,7 +37,7 @@
 /* eslint-disable indent, no-unused-vars, no-multiple-empty-lines, max-nested-callbacks, space-before-function-paren, quotes, comma-spacing */
 'use strict';
 
-var precacheConfig = [["asset-manifest.json","57c22ab7998dc0779d3e0b7f712caaef"],["favicon.ico","fd73a6eb26a08ee46e7fd3cc34e7f6bf"],["index.html","768f3673979c9f607d1ac35fd67bd634"],["manifest.json","3695758f8512cb04a13b06d8cbb0b142"],["static/css/main.addc77f9.css","5e4eb7cb6b4f812efadd84ef498d3030"],["static/js/1.a7af0920.chunk.js","0c903ae0f3e6aa5d86b6c0bbbfcb11d7"],["static/js/2.d975a0fc.chunk.js","7596b7f89bc59da2cff3ffb754217029"],["static/js/3.8b4ed52f.chunk.js","1dab8621e342e96bd584038ac95f8b51"],["static/js/4.40d65085.chunk.js","4c4bf7d038f3bd26401dabd3a5fdfb5c"],["static/js/5.66318ead.chunk.js","1d0c865031e3f14b7bdb93f9880586a7"],["static/js/6.75b15f1f.chunk.js","dc4662f6cfa58f74972081aa0a4f5e0b"],["static/js/7.b252ddb4.chunk.js","82da678112649b22eb321f695cdaaa26"],["static/js/main.37899ccd.js","322ab575c7db1adb37974a4424b918df"],["static/media/PrincessSofia-Regular.f7e33739.ttf","f7e33739ac1a7de9b5e3746e37bb4323"],["static/media/Quicksand-Bold.0c044626.ttf","0c04462696ac0fd3e85e75415b483fdb"],["static/media/Quicksand-Light.c5f95478.ttf","c5f954788f341b22e1974433bb972ac1"],["static/media/Quicksand-Medium.0c642332.ttf","0c64233241ead44bffbec54eb9d1d164"],["static/media/Quicksand-Regular.f87b9b4f.ttf","f87b9b4f34bdbf75b5c0cf3a5a137508"],["static/media/flower1.46df002b.webp","46df002b2022205345b848fd2e4eef5b"],["static/media/flower2.4200d493.webp","4200d4935b2ff69579b6ca51fbd07299"],["static/media/stamp.8588dba0.webp","8588dba0c31455a35e28b7a8f4498c22"]];
+var precacheConfig = [["index.html","b8c7957c4000986b89c5b3e5cf2b318d"],["static/css/main.addc77f9.css","5e4eb7cb6b4f812efadd84ef498d3030"],["static/js/1.a7af0920.chunk.js","0c903ae0f3e6aa5d86b6c0bbbfcb11d7"],["static/js/2.d975a0fc.chunk.js","7596b7f89bc59da2cff3ffb754217029"],["static/js/3.8b4ed52f.chunk.js","1dab8621e342e96bd584038ac95f8b51"],["static/js/4.40d65085.chunk.js","4c4bf7d038f3bd26401dabd3a5fdfb5c"],["static/js/5.66318ead.chunk.js","1d0c865031e3f14b7bdb93f9880586a7"],["static/js/6.75b15f1f.chunk.js","dc4662f6cfa58f74972081aa0a4f5e0b"],["static/js/7.b252ddb4.chunk.js","82da678112649b22eb321f695cdaaa26"],["static/js/main.37899ccd.js","322ab575c7db1adb37974a4424b918df"],["static/media/PrincessSofia-Regular.f7e33739.ttf","f7e33739ac1a7de9b5e3746e37bb4323"],["static/media/Quicksand-Bold.0c044626.ttf","0c04462696ac0fd3e85e75415b483fdb"],["static/media/Quicksand-Light.c5f95478.ttf","c5f954788f341b22e1974433bb972ac1"],["static/media/Quicksand-Medium.0c642332.ttf","0c64233241ead44bffbec54eb9d1d164"],["static/media/Quicksand-Regular.f87b9b4f.ttf","f87b9b4f34bdbf75b5c0cf3a5a137508"],["static/media/flower1.46df002b.webp","46df002b2022205345b848fd2e4eef5b"],["static/media/flower2.4200d493.webp","4200d4935b2ff69579b6ca51fbd07299"],["static/media/stamp.8588dba0.webp","8588dba0c31455a35e28b7a8f4498c22"]];
 var cacheName = 'sw-precache-v3-sw-precache-' + (self.registration ? self.registration.scope : '');
 
 
@@ -133,7 +133,7 @@ var urlsToCacheKeys = new Map(
     var relativeUrl = item[0];
     var hash = item[1];
     var absoluteUrl = new URL(relativeUrl, self.location);
-    var cacheKey = createCacheKey(absoluteUrl, hashParamName, hash, false);
+    var cacheKey = createCacheKey(absoluteUrl, hashParamName, hash, /\.\w{8}\./);
     return [absoluteUrl.toString(), cacheKey];
   })
 );
@@ -227,11 +227,11 @@ self.addEventListener('fetch', function(event) {
 
     // If shouldRespond is still false, check to see if this is a navigation
     // request, and if so, whether the URL matches navigateFallbackWhitelist.
-    var navigateFallback = '/index.html';
+    var navigateFallback = 'index.html';
     if (!shouldRespond &&
         navigateFallback &&
         (event.request.mode === 'navigate') &&
-        isPathWhitelisted(["^(?!.*\\.html$|\\/data\\/).*"], event.request.url)) {
+        isPathWhitelisted([], event.request.url)) {
       url = new URL(navigateFallback, self.location).toString();
       shouldRespond = urlsToCacheKeys.has(url);
     }
