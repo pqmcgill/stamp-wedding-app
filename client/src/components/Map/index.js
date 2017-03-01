@@ -27,7 +27,7 @@ export default () => {
 	};
 
 	if (process.env.NODE_ENV === 'production') {
-		console.log(process.env.REACT_APP_GOOGLE_API_KEY);
+		console.log(process.env);
 		props.bootstrapURLKeys = {
 			key: process.env.REACT_APP_GOOGLE_API_KEY
 		};
