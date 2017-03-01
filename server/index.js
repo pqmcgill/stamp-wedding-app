@@ -4,6 +4,7 @@ import cors from 'cors';
 import passport from 'passport';
 import morgan from 'morgan';
 import bodyParser from 'body-parser';
+import compression from 'compression';
 import config from 'config';
 
 import loadStrategy from './app/middleware/passport';
@@ -38,6 +39,9 @@ app.use(bodyParser.json({ type: 'application/json' }));
 app.use(passport.initialize());
 
 loadStrategy(passport);
+
+// gzip assets
+app.use(compression());
 
 // serve static files under build folder
 app.use(express.static(__dirname + '/build'));
