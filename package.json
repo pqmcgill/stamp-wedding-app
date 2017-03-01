@@ -9,7 +9,8 @@
     "test_watch": "(cd ./client && yarn test && cd ../) & (ttab -a iTerm2 -w 'cd ./server; yarn test; cd ../')",
     "server_dev": "(ttab -a iTerm2 -w 'cd ./server; yarn start;')",
     "client_dev": "(ttab -a iTerm2 -w 'cd ./client; yarn start;')",
-    "dev": "yarn server_dev && yarn client_dev && yarn test_watch"
+    "dev": "yarn server_dev && yarn client_dev && yarn test_watch",
+    "build": "cd ./client && yarn build && cp -R ./build ../server/build/"
   },
   "author": "Patrick McGill",
   "license": "MIT",

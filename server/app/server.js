@@ -39,8 +39,8 @@ app.use(passport.initialize());
 
 loadStrategy(passport);
 
-app.get('/', (req, res) => {
-	res.json({ message: 'Welcome to our Bookstore!' });
+app.get('/*', (req, res) => {
+  res.sendfile(__dirname + '/build/index.html');
 });
 
 app.use('/api', api());
