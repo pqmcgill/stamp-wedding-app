@@ -51,6 +51,7 @@ app.use('/api', api());
 
 // pushstate support
 app.get('*', (req, res) => {
+	console.log(process.env);
   res.sendfile(__dirname + '/build/index.html');
 });
 
