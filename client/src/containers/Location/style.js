@@ -8,7 +8,7 @@ const styles = {
 		height: '16em',
 		textAlign: 'left',
 
-		'@media (max-width: 768px)': {
+		'@media (max-width: 1024px)': {
 			order: -2,
 			height: '20em'
 		}
@@ -23,7 +23,7 @@ const styles = {
 		padding: '0 1em',
 		textAlign: 'center',
 
-		'@media (max-width: 768px)': {
+		'@media (max-width: 1024px)': {
 			padding: '0',
 			order: -1
 		}
@@ -45,10 +45,17 @@ const styles = {
 	},
 
 	thanks: {
+		fontSize: '1.2rem'
+	},
+
+	thanksInner: {
 		padding: '1em',
-		fontSize: fonts.smaller,
+		margin: '1em 0 1em 0',
 		backgroundColor: colors.lightPink,
 		borderRadius: '10px',
+		'@media (max-width: 1024px)': {
+			marginRight: '1em'
+		}
 	},
 
 	header: {
@@ -57,7 +64,7 @@ const styles = {
 	},
 
 	thanksHeader: {
-		fontSize: fonts.large
+		fontSize: fonts.small
 	},
 
 	dearGuests: {
