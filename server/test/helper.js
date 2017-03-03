@@ -5,7 +5,7 @@ chai.use(chaiHttp);
 
 import mongoose from 'mongoose';
 import User from '../app/models/user';
-import app from '../app/server';
+import app from '../index';
 
 after(() => {
 	app.server.close();

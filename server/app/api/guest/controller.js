@@ -1,6 +1,5 @@
 import mongoose from 'mongoose';
 import shortid from 'shortid';
-import config from 'config';
 import { encode, decode } from 'jwt-simple';
 import User from '../../models/user';
 
@@ -8,7 +7,7 @@ const createGuest = (req, res) => {
 	if (!req.body.username || !req.body.access) {
 		res.status(409);
 		return res.json({ success: false, msg: 'Please pass username and access' });
-	} 
+	}
 
 	const guest = new User({
 		username:    req.body.username,
@@ -36,7 +35,7 @@ const getAllGuests = (req, res) => {
 			return res.sendStatus(500);
 		}
 		const formatted = Object.keys(guests)
-			.reduce((acc, curr) => { 
+			.reduce((acc, curr) => {
 				const guest = { [guests[curr]._id]: guests[curr] };
 				return { ...acc, ...guest };
 			}, {});
@@ -86,11 +85,11 @@ const authenticateUser = (req, res) => {
 
 		user.comparePassword(req.body.password, (err, isMatch) => {
 			if (isMatch && !err) {
-				const token = encode(user, config.secret);
+				const token = encode(user, process.env.SECRET);
 				res.status(200);
-				res.json({ 
-					success: true, 
-					user: { 
+				res.json({
+					success: true,
+					user: {
             id: user._id,
 						username: user.username,
 						access: user.access,
@@ -98,7 +97,7 @@ const authenticateUser = (req, res) => {
             plusOneName: user.plusOneName,
             guestConfirmation: user.guestConfirmation,
             plusOneConfirmation: user.plusOneConfirmation,
-						token: `JWT ${token}` 
+						token: `JWT ${token}`
 					}
 				});
 			} else {
