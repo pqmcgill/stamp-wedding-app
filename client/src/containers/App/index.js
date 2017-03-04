@@ -102,34 +102,34 @@ const style = StyleSheet.create({
 export default class App extends Component {
 	constructor (props) {
 		super(props);
-		this.handleScroll = this.handleScroll.bind(this);
+		// this.handleScroll = this.handleScroll.bind(this);
 		this.state = {
 		 isSticky: false
 		};
 	}
 
-	componentDidMount() {
-		window.addEventListener('scroll', this.handleScroll);
-	}
-
-	componentWillUnmount() {
-		window.removeEventListener('scroll', this.handleScroll);
-	}
-
-	handleScroll(e) {
-		const headerHeight = document.getElementById('header').clientHeight;
-		const scrollTop = e.srcElement.scrollingElement.scrollTop;
-
-		if (scrollTop + 1 >= headerHeight) {
-			this.setState({
-				isSticky: true
-			});
-		} else {
-			this.setState({
-				isSticky: false
-			});
-		}
-	}
+	// componentDidMount() {
+	// 	window.addEventListener('scroll', this.handleScroll);
+	// }
+	//
+	// componentWillUnmount() {
+	// 	window.removeEventListener('scroll', this.handleScroll);
+	// }
+	//
+	// handleScroll(e) {
+	// 	const headerHeight = document.getElementById('header').clientHeight;
+	// 	const scrollTop = e.srcElement.scrollingElement.scrollTop;
+	//
+	// 	if (scrollTop + 1 >= headerHeight) {
+	// 		this.setState({
+	// 			isSticky: true
+	// 		});
+	// 	} else {
+	// 		this.setState({
+	// 			isSticky: false
+	// 		});
+	// 	}
+	// }
 
 	render () {
 		return (

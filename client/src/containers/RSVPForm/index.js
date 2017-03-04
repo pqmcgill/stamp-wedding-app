@@ -15,8 +15,8 @@ let RSVPForm = reduxForm({
 
 const RSVPFormContainer = ({ user, updateUser }) => {
   const handleSubmit = val => {
+    console.log(val);
     updateUser(user.id, val, user.token);
-    login('foo', 'bar');
   };
 
   const initialValues = {

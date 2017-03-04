@@ -1,16 +1,17 @@
+import './reset.css';
+import './style/fonts.css';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import myMuiTheme from './style/muiTheme';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import configureStore from './store';
 import App from './containers/App';
 
 injectTapEventPlugin();
-
-import './reset.css';
-import './style/fonts.css';
 
 const initialState = {};
 const store = configureStore(initialState);
@@ -19,7 +20,7 @@ const renderApp = CurrentApp => {
   ReactDOM.render(
     <Provider store={ store }>
       <BrowserRouter>
-        <MuiThemeProvider>
+        <MuiThemeProvider muiTheme={ myMuiTheme }>
           <CurrentApp />
         </MuiThemeProvider>
       </BrowserRouter>

@@ -39,9 +39,9 @@ const styles = {
 		padding: '0 1em',
 		fontSize: fonts.smaller,
 
-		'@media (max-width: 768px)': {
-			textAlign: 'center'
-		}
+		// '@media (max-width: 768px)': {
+		// 	textAlign: 'center'
+		// }
 	},
 
 	thanks: {

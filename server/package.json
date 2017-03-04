@@ -7,8 +7,8 @@
     "node": "6.9.1"
   },
   "scripts": {
-    "test": "PORT=4001 NODE_ENV=test mocha -w --recursive --timeout 10000 --compilers js:babel-register",
-    "test_once": "PORT=4001 NODE_ENV=test mocha --recursive --timeout 10000 --compilers js:babel-register",
+    "test": "DB_HOST='mongodb://localhost/WeddingTest' PORT=4001 NODE_ENV=test mocha -w --recursive --timeout 10000 --compilers js:babel-register",
+    "test_once": "npm run test -w",
     "start_dev": "NODE_ENV=dev nodemon -w app --exec \"babel-node ./index.js\"",
     "start": "babel-node ./index.js"
   },

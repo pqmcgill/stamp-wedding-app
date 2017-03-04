@@ -11,7 +11,7 @@ import Map from '../../components/Map';
 export default props => (
 	<div>
 		<Grid>
-			<Row center="xs" start="sm,md,lg" top="xs,sm,md,lg">
+			<Row start="xs,sm,md,lg" top="xs,sm,md,lg">
 				<Col xs={12} sm={12} md={6} lg={6} className={ css(styles.directions) + ' quicksandRegular' }>
 					<p className={ css(styles.directionsHeader) + ' princessSofia' }>
 						Directions
