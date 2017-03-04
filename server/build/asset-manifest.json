@@ -1,12 +1,21 @@
 {
   "main.css": "static/css/main.addc77f9.css",
   "main.css.map": "static/css/main.addc77f9.css.map",
+<<<<<<< HEAD
   "main.js": "static/js/main.2fb81b72.js",
   "main.js.map": "static/js/main.2fb81b72.js.map",
   "static/js/1.ab83cbbe.chunk.js": "static/js/1.ab83cbbe.chunk.js",
   "static/js/1.ab83cbbe.chunk.js.map": "static/js/1.ab83cbbe.chunk.js.map",
   "static/js/2.c2becbc3.chunk.js": "static/js/2.c2becbc3.chunk.js",
   "static/js/2.c2becbc3.chunk.js.map": "static/js/2.c2becbc3.chunk.js.map",
+=======
+  "main.js": "static/js/main.3db76a7f.js",
+  "main.js.map": "static/js/main.3db76a7f.js.map",
+  "static/js/1.a7af0920.chunk.js": "static/js/1.a7af0920.chunk.js",
+  "static/js/1.a7af0920.chunk.js.map": "static/js/1.a7af0920.chunk.js.map",
+  "static/js/2.1133bb12.chunk.js": "static/js/2.1133bb12.chunk.js",
+  "static/js/2.1133bb12.chunk.js.map": "static/js/2.1133bb12.chunk.js.map",
+>>>>>>> c0da9117c63b73e9abd0eb6f21374ac9ca9bb1b8
   "static/js/3.8b4ed52f.chunk.js": "static/js/3.8b4ed52f.chunk.js",
   "static/js/3.8b4ed52f.chunk.js.map": "static/js/3.8b4ed52f.chunk.js.map",
   "static/js/4.40d65085.chunk.js": "static/js/4.40d65085.chunk.js",

@@ -5,12 +5,13 @@ import passport from 'passport';
 import morgan from 'morgan';
 import bodyParser from 'body-parser';
 import compression from 'compression';
-import config from 'config';
+import { config } from 'dotenv';
+config();
 
 import loadStrategy from './app/middleware/passport';
 import api from './app/api';
 
-const PORT = process.env.PORT || config.port;
+const PORT = process.env.PORT;
 
 /////////////////////
 // Configure Database
@@ -19,7 +20,18 @@ const opts = {
 	replset: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 }}
 };
 
-mongoose.connect(config.DBHost, opts);
+
+if (process.env.NODE_ENV === 'production') {
+	mongoose.connect(
+		`mongodb://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}`,
+		opts
+	);
+} else {
+	mongoose.connect(
+		`mongodb://${process.env.DB_HOST}`,
+		opts
+	);
+}
 const { connection } = mongoose;
 
 connection.on('error', console.error.bind(console, 'connection error:'));
@@ -29,7 +41,7 @@ connection.on('error', console.error.bind(console, 'connection error:'));
 const app = express();
 
 app.use(cors());
-if (config.util.getEnv('NODE_ENV') !== 'test') {
+if (process.env.NODE_ENV !== 'test') {
 	app.use(morgan('combined'));
 }
 app.use(bodyParser.json());
@@ -44,7 +56,7 @@ loadStrategy(passport);
 app.use(compression());
 
 // serve static files under build folder
-app.use(express.static(__dirname + '/build'));
+app.use(express.static(__dirname + '/build', { maxage: 86400000 /* one day */ }));
 
 // handle api calls
 app.use('/api', api());

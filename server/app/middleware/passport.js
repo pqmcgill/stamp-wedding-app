@@ -1,12 +1,10 @@
-import config from 'config';
 import { Strategy, ExtractJwt } from 'passport-jwt';
-
 import User from '../models/user';
 
 export default passport => {
-	const opts = { 
-		secretOrKey: config.secret,
-	 	jwtFromRequest: ExtractJwt.fromAuthHeader()	
+	const opts = {
+		secretOrKey: process.env.SECRET,
+	 	jwtFromRequest: ExtractJwt.fromAuthHeader()
 	};
 	passport.use(new Strategy(opts, (jwt, done) => {
 		User.findOne({ _id: jwt._id }, (err, user) => {

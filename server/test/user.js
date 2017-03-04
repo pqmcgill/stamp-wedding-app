@@ -1,11 +1,10 @@
 import { request, expect } from 'chai';
-import config from 'config';
 import { decode } from 'jwt-simple';
 import mongoose from 'mongoose';
 import User from '../app/models/user';
 import authenticate from './util/authHelper';
 
-import server from '../app/server';
+import server from '../index';
 
 let adminToken, guestToken;
 
@@ -63,7 +62,7 @@ describe('/users', () => {
 		});
 	});
 	// Post '/authenticate'
-	
+
 	describe('POST \'/\'', () => {
 		it('should return Unauthorized error if token is not used', done => {
 			request(server)
@@ -176,8 +175,8 @@ describe('/users', () => {
 			});
 		});
 	});
-	// end GET '/'	
-	
+	// end GET '/'
+
 	describe('DELETE \'/\'', () => {
 		it('should delete a guest given its id', (done) => {
 			authenticate(server, { username: 'adminUser', password: 'adminPassword' }, (err, user) => {
