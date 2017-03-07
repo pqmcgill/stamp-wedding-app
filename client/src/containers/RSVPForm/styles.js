@@ -51,5 +51,24 @@ export default StyleSheet.create({
     '@media (max-width: 768px)': {
       margin: '0.25em 0'
     },
-  }
+  },
+
+  submitBtn: {
+    fontSize: fonts.smaller,
+    padding: '0.5em 1em',
+    border: 'none',
+    outline: 'none',
+    backgroundColor: colors.blue,
+    color: '#FFF',
+    borderRadius: '4px',
+    marginTop: '2em',
+
+    ':focus': {
+      backgroundColor: colors.pink
+    },
+
+    '@media (max-width: 768px)': {
+      width: '100%'
+    }
+  },
 });
