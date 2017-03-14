@@ -9,11 +9,16 @@ import ActionFavorite from 'material-ui/svg-icons/action/favorite';
 import ActionFavoriteBorder from 'material-ui/svg-icons/action/favorite-border';
 import { RadioButtonGroup, Checkbox } from 'redux-form-material-ui';
 
-const Form = ({ handleSubmit, user, guestRSVP, plusOneRSVP, ...props }) => {
-  const hasGuestRSVPd = guestRSVP === 'Yes';
-  const hasPlusOneRSVPd = plusOneRSVP === 'Yes';
-  console.log(props);
-  return (
+const Form = ({ handleSubmit, user, guestRSVP, plusOneRSVP, dirty, error, ...props }) => {
+  const hasGuestRSVPd = guestRSVP === 'YES';
+  const hasPlusOneRSVPd = plusOneRSVP === 'YES';
+  let buttonClassName;
+
+  buttonClassName = (dirty && !error) ?
+    css(styles.submitBtn) :
+    css(styles.submitBtn, styles.disabled);
+    
+    return (
     <form onSubmit={ handleSubmit } className=" quicksandRegular">
       <Row center="xs,sm,md,lg">
 
@@ -29,8 +34,8 @@ const Form = ({ handleSubmit, user, guestRSVP, plusOneRSVP, ...props }) => {
               <Col xs={12}>
                 <p className={ css(styles.radioQuestion) }>Are you able to attend the wedding?</p>
                 <Field name="guestRSVP" component={ RadioButtonGroup }>
-                  <RadioButton value="Yes" label="Yes" checkedIcon={<ActionFavorite />} uncheckedIcon={<ActionFavoriteBorder />}/>
-                  <RadioButton value="No" label="No" checkedIcon={<ActionFavorite />} uncheckedIcon={<ActionFavoriteBorder />}/>
+                  <RadioButton value="YES" label="Yes" checkedIcon={<ActionFavorite />} uncheckedIcon={<ActionFavoriteBorder />}/>
+                  <RadioButton value="NO" label="No" checkedIcon={<ActionFavorite />} uncheckedIcon={<ActionFavoriteBorder />}/>
                 </Field>
               </Col>
             </Row>
@@ -55,7 +60,7 @@ const Form = ({ handleSubmit, user, guestRSVP, plusOneRSVP, ...props }) => {
                   <Field name="guestBeverageSelection" component={ RadioButtonGroup }>
                     <RadioButton value="BEER" label="Beer" checkedIcon={<ActionFavorite />} uncheckedIcon={<ActionFavoriteBorder />}/>
                     <RadioButton value="WINE" label="Wine" checkedIcon={<ActionFavorite />} uncheckedIcon={<ActionFavoriteBorder />}/>
-                    <RadioButton value="NON_ALC" label="Non alcoholic beverages" checkedIcon={<ActionFavorite />} uncheckedIcon={<ActionFavoriteBorder />}/>
+                    <RadioButton value="NONALC" label="Non alcoholic beverages" checkedIcon={<ActionFavorite />} uncheckedIcon={<ActionFavoriteBorder />}/>
                   </Field>
                 </Col>
               </Row>
@@ -75,8 +80,8 @@ const Form = ({ handleSubmit, user, guestRSVP, plusOneRSVP, ...props }) => {
               <Col xs={12}>
                 <p className={ css(styles.radioQuestion) }>Are you able to attend the wedding?</p>
                 <Field name="plusOneRSVP" component={ RadioButtonGroup }>
-                  <RadioButton value="Yes" label="Yes" checkedIcon={<ActionFavorite />} uncheckedIcon={<ActionFavoriteBorder />}/>
-                  <RadioButton value="No" label="No" checkedIcon={<ActionFavorite />} uncheckedIcon={<ActionFavoriteBorder />}/>
+                  <RadioButton value="YES" label="Yes" checkedIcon={<ActionFavorite />} uncheckedIcon={<ActionFavoriteBorder />}/>
+                  <RadioButton value="NO" label="No" checkedIcon={<ActionFavorite />} uncheckedIcon={<ActionFavoriteBorder />}/>
                 </Field>
               </Col>
             </Row>
@@ -102,7 +107,7 @@ const Form = ({ handleSubmit, user, guestRSVP, plusOneRSVP, ...props }) => {
                   <Field name="plusOneBeverageSelection" component={ RadioButtonGroup }>
                     <RadioButton value="BEER" label="Beer" checkedIcon={<ActionFavorite />} uncheckedIcon={<ActionFavoriteBorder />}/>
                     <RadioButton value="WINE" label="Wine" checkedIcon={<ActionFavorite />} uncheckedIcon={<ActionFavoriteBorder />}/>
-                    <RadioButton value="NON_ALC" label="Non alcoholic beverages" checkedIcon={<ActionFavorite />} uncheckedIcon={<ActionFavoriteBorder />}/>
+                    <RadioButton value="NONALC" label="Non alcoholic beverages" checkedIcon={<ActionFavorite />} uncheckedIcon={<ActionFavoriteBorder />}/>
                   </Field>
                 </Col>
               </Row>
@@ -122,8 +127,8 @@ const Form = ({ handleSubmit, user, guestRSVP, plusOneRSVP, ...props }) => {
               <Col xs={12}>
                 <p className={ css(styles.radioQuestion) }>Will you be staying on the property overnight after the wedding? (See Important Info page for more details.)</p>
                 <Field name="overnightSelection" component={ RadioButtonGroup }>
-                  <RadioButton value="Yes" label="Yes, and I know I need to bring my own tent to stay in." checkedIcon={<ActionFavorite />} uncheckedIcon={<ActionFavoriteBorder />}/>
-                  <RadioButton value="No" label="No, I am leaving after the reception and staying elsewhere." checkedIcon={<ActionFavorite />} uncheckedIcon={<ActionFavoriteBorder />}/>
+                  <RadioButton value="YES" label="Yes, and I know I need to bring my own tent to stay in." checkedIcon={<ActionFavorite />} uncheckedIcon={<ActionFavoriteBorder />}/>
+                  <RadioButton value="NO" label="No, I am leaving after the reception and staying elsewhere." checkedIcon={<ActionFavorite />} uncheckedIcon={<ActionFavoriteBorder />}/>
                 </Field>
               </Col>
             </Row>
@@ -133,11 +138,11 @@ const Form = ({ handleSubmit, user, guestRSVP, plusOneRSVP, ...props }) => {
             <Row start="xs,sm,md,lg">
               <Col xs={12}>
                 <p className={ css(styles.radioQuestion) }>What flavors of ice cream do you like?</p>
-                <Field name="strawberry" label="strawberry" component={ Checkbox } />
-                <Field name="mint-choc-chip" label="mint chocolate chip" component={ Checkbox } />
-                <Field name="cookies-n-cream" label="cookies 'n cream" component={ Checkbox } />
-                <Field name="vanilla" label="vanilla" component={ Checkbox } />
-                <Field name="gross" label="eww, ice cream is gross!" component={ Checkbox } />
+                <Field name="iceCreamSelections.STRAWBERRY" label="strawberry" component={ Checkbox } />
+                <Field name="iceCreamSelections.MINTCHOCCHIP" label="mint chocolate chip" component={ Checkbox } />
+                <Field name="iceCreamSelections.COOKIES" label="cookies 'n cream" component={ Checkbox } />
+                <Field name="iceCreamSelections.VANILLA" label="vanilla" component={ Checkbox } />
+                <Field name="iceCreamSelections.GROSS" label="eww, ice cream is gross!" component={ Checkbox } />
               </Col>
             </Row>
           </Col>
@@ -147,8 +152,7 @@ const Form = ({ handleSubmit, user, guestRSVP, plusOneRSVP, ...props }) => {
               <Col xs={12}>
                 <p className={ css(styles.radioQuestion) }>What is one song that you love dancing to?</p>
                 <Field className={ css(styles.input) }
-                  name="songChoice"
-                  label="strawberry"
+                  name="song"
                   component="input"
                   placeholder="ex: The Chicken Dance"
                 />
@@ -158,11 +162,9 @@ const Form = ({ handleSubmit, user, guestRSVP, plusOneRSVP, ...props }) => {
         </Row>
       :''}
 
-      { props.dirty ?
-        <Row center="xs,sm,md,lg">
-          <button className={ css(styles.submitBtn) } label="Save changes" type="submit">SUBMIT RESPONSE</button>
-        </Row>
-      :''}
+      <Row center="xs,sm,md,lg">
+        <button className={ buttonClassName } label="Save changes" type="submit">SUBMIT RESPONSE</button>
+      </Row>
     </form>
   );
 };

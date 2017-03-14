@@ -71,4 +71,9 @@ export default StyleSheet.create({
       width: '100%'
     }
   },
+
+  disabled: {
+    pointerEvents: 'none',
+    opacity: 0.7
+  }
 });

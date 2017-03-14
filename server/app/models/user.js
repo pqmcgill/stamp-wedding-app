@@ -9,17 +9,36 @@ const UserSchema = new Schema({
   guestName: {
     type: String
   },
-  guestConfirmation: {
-    type: Boolean,
-    default: false
-  },
-  plusOneName: {
+  guestRSVP: {
     type: String,
+    // default: "NO"
   },
-  plusOneConfirmation: {
-    type: Boolean,
-    default: false
+	guestDinnerSelection: {
+		type: String
+	},
+	guestBeverageSelection: {
+		type: String
+	},
+  plusOneName: {
+    type: String
   },
+  plusOneRSVP: {
+    type: String,
+    // default: "NO"
+  },
+	plusOneDinnerSelection: {
+		type: String
+	},
+	plusOneBeverageSelection: {
+		type: String
+	},
+	overnightSelection: {
+		type: String
+	},
+	iceCreamSelections: {},
+	song: {
+		type: String
+	},
 	password: {
 		type: String,
 		required: true
@@ -28,8 +47,8 @@ const UserSchema = new Schema({
 		type: String,
 		required: true
 	},
-	affiliation: { 
-		type: String 
+	affiliation: {
+		type: String
 	},
 });
 

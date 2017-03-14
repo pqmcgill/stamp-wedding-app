@@ -58,6 +58,7 @@ const deleteGuest = ({ params }, res) => {
 };
 
 const updateGuest = ({ params, body }, res) => {
+	console.log(body);
   User.findOne({ _id: mongoose.Types.ObjectId(params.id) }).then((found) => {
     if (!found) return res.json({ success: false, msg: 'No records found with that id' });
     Object.keys(body).forEach((key) => {
@@ -90,13 +91,8 @@ const authenticateUser = (req, res) => {
 				res.json({
 					success: true,
 					user: {
-            id: user._id,
-						username: user.username,
-						access: user.access,
-            guestName: user.guestName,
-            plusOneName: user.plusOneName,
-            guestConfirmation: user.guestConfirmation,
-            plusOneConfirmation: user.plusOneConfirmation,
+						...user._doc,
+						id: user._id,
 						token: `JWT ${token}`
 					}
 				});

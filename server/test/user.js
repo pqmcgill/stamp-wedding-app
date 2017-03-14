@@ -221,12 +221,12 @@ describe('/users', () => {
           request(server)
             .put(`/api/user/${guest._id}`)
             .set('Authorization', user.token)
-            .send({ guestConfirmation: true, plusOneConfirmation: true })
+            .send({ guestRSVP: "YES", plusOneRSVP: "YES" })
             .end((err, res) => {
               if (err) return done(err);
               expect(res.body.success).to.be.true;
-              expect(res.body.updated.plusOneConfirmation).to.be.true;
-              expect(res.body.updated.guestConfirmation).to.be.true
+              expect(res.body.updated.plusOneRSVP).to.equal('YES');
+              expect(res.body.updated.guestRSVP).to.equal('YES');
               done();
             });
         });
