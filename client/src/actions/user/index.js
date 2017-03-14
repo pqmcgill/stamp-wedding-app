@@ -69,7 +69,6 @@ export const logout = () => {
 };
 
 export const updateUser = (userId, newUser, token) => {
-	console.log(newUser);
   return dispatch => {
     dispatch(updateUserPending());
     return fetch(`/api/user/${userId}`, {

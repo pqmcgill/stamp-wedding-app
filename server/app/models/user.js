@@ -26,6 +26,10 @@ const UserSchema = new Schema({
     type: String,
     // default: "NO"
   },
+  hasSubmittedResponse: {
+	  type: Boolean,
+	  default: false
+  },
 	plusOneDinnerSelection: {
 		type: String
 	},

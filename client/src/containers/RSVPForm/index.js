@@ -15,9 +15,14 @@ let RSVPForm = reduxForm({
   validate
 })(Form);
 
-const RSVPFormContainer = ({ user, updateUser }) => {
-  const handleSubmit = val => {
-    updateUser(user.id, val, user.token);
+const RSVPFormContainer = ({ user, updateUser, push }) => {
+  const handleSubmit = function(val) {
+    updateUser(user.id, val, user.token)
+        .then(() => {
+            document.body.scrollTop = document.documentElement.scrollTop = 0;
+            push('/welcome');
+        })
+        .catch(() => console.log('error'));
   };
 
   const {

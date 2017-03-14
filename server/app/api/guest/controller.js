@@ -12,10 +12,10 @@ const createGuest = (req, res) => {
 	const guest = new User({
 		username:    req.body.username,
 		password:    shortid.generate(),
-    access:      req.body.access,
-    affiliation: req.body.affiliation,
-    guestName:   req.body.guestName,
-    plusOneName: req.body.plusOneName,
+	    access:      req.body.access,
+	    affiliation: req.body.affiliation,
+	    guestName:   req.body.guestName,
+	    plusOneName: req.body.plusOneName,
 	});
 
 	guest.save((err, user) => {
@@ -58,12 +58,12 @@ const deleteGuest = ({ params }, res) => {
 };
 
 const updateGuest = ({ params, body }, res) => {
-	console.log(body);
   User.findOne({ _id: mongoose.Types.ObjectId(params.id) }).then((found) => {
     if (!found) return res.json({ success: false, msg: 'No records found with that id' });
     Object.keys(body).forEach((key) => {
       found[key] = body[key];
     });
+	found.hasSubmittedResponse = true;
     found.save((err, updated) => {
       if (err) return res.json({ success: false, msg: 'Error: ' + err });
       res.send({ success: true, updated });

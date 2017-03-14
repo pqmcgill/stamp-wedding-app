@@ -227,6 +227,7 @@ describe('/users', () => {
               expect(res.body.success).to.be.true;
               expect(res.body.updated.plusOneRSVP).to.equal('YES');
               expect(res.body.updated.guestRSVP).to.equal('YES');
+			  expect(res.body.updated.hasSubmittedResponse).to.equal(true);
               done();
             });
         });

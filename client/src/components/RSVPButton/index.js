@@ -1,15 +1,19 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { StyleSheet, css } from 'aphrodite';
 import style from './style';
 import { Link } from 'react-router-dom';
 
 const styles = StyleSheet.create(style);
 
-const RSVPButton = () => {
+export const RSVPButton = ({ hasSubmittedResponse }) => {
+	const style = hasSubmittedResponse ?
+		css(styles.button, styles.complete) :
+		css(styles.button);
 	return (
 		<div>
 			<Link
-				className={ `${css(styles.button)} quicksandLight` }
+				className={ `${style} quicksandLight` }
 				to="/rsvp"
 			>
 				RSVP
@@ -18,4 +22,8 @@ const RSVPButton = () => {
 	);
 };
 
-export default RSVPButton;
+const mapStateToProps = ({ user }) => ({
+	hasSubmittedResponse: user.hasSubmittedResponse
+});
+
+export default connect(mapStateToProps)(RSVPButton);
