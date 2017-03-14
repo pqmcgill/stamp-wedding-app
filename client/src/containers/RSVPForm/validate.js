@@ -3,7 +3,7 @@ export default values => {
   if (!values.guestRSVP || !values.guestDinnerSelection || !values.guestBeverageSelection) {
     errors._error = true;
   }
-  if (values.plusOneRSVP) {
+  if (values.plusOneRSVP === 'YES') {
     if (!values.plusOneDinnerSelection || !values.plusOneBeverageSelection) {
       errors._error = true;
     }
