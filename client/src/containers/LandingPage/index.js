@@ -1,12 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import flower1webp from '../../assets/flower1.webp';
-// import flower2webp from '../../assets/flower2.webp';
-// import flower1png from '../../assets/flower1.png';
-// import flower2png from '../../assets/flower2.png';
 import detectWebpSupport from '../../util/detectWebpSupport';
 import CompatibleImg from '../../components/CompatibleImg';
-// import stamp from '../../assets/stamp.jpg';
 import { css } from 'aphrodite';
 import { Grid, Row, Col } from 'react-flexbox-grid-aphrodite';
 import styles from './styles';
@@ -37,7 +32,11 @@ export class App extends Component {
 						<Grid fluid>
 							<Row center="xs">
 								<Col>
-									<CompatibleImg imgName="flower1" fallback="png" />
+									<CompatibleImg
+										imgName="flower1"
+										fallback="png"
+										className={ css(styles.flower, styles.img) }
+									/>
 								</Col>
 							</Row>
 							<Row center="xs" middle="xs">
@@ -50,7 +49,11 @@ export class App extends Component {
 							</Row>
 							<Row center="xs">
 								<Col xs={6}>
-									<CompatibleImg imgName="flower2" fallback="png" />
+									<CompatibleImg
+										imgName="flower2"
+										fallback="png"
+										className={ css(styles.flower, styles.flower2, styles.img) }
+									/>
 								</Col>
 							</Row>
 						</Grid>

@@ -3,18 +3,16 @@ import { css } from 'aphrodite';
 import { Grid, Row, Col } from 'react-flexbox-grid-aphrodite';
 
 import RSVPButton from '../../components/RSVPButton';
-import flower1 from '../../assets/flower1.webp';
-import flower2 from '../../assets/flower2.webp';
+import CompatibleImg from '../../components/CompatibleImg';
 import styles from './style';
 
 export default props => (
 	<Grid fluid className={ css(styles.container ) + ' quicksandRegular'}>
 		<Row center="xs">
 			<Col>
-				<img 
-					className={ css(styles.flower) } 
-					src={ flower1 } 
-					role="presentation" 
+				<CompatibleImg
+					className={ css(styles.flower) }
+					imgName='flower1'
 				/>
 			</Col>
 		</Row>
@@ -30,7 +28,7 @@ export default props => (
 		</Row>
 		<Row center="xs" className={ css(styles.button) }>
 			<Col>
-				<RSVPButton /> 
+				<RSVPButton />
 			</Col>
 		</Row>
 		<Row center="xs" className={ css(styles.buttonText) }>
@@ -40,10 +38,9 @@ export default props => (
 		</Row>
 		<Row center="xs">
 			<Col xs={6}>
-				<img 
-					className={ css(styles.flower) } 
-					src={ flower2 } 
-					role="presentation" 
+				<CompatibleImg
+					className={ css(styles.flower) }
+					imgName='flower2'
 				/>
 			</Col>
 		</Row>

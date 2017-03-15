@@ -3,8 +3,7 @@ import { reduxForm, Field } from 'redux-form';
 import { Grid, Row, Col } from 'react-flexbox-grid-aphrodite';
 import { css } from 'aphrodite';
 import styles from './styles';
-import flowerImg from '../../assets/flower1.webp';
-import flower2Img from '../../assets/flower2.webp';
+import CompatibleImg from '../../components/CompatibleImg';
 import RSVPButton from '../../components/RSVPButton';
 
 const ContactForm = ({ handleSubmit, reset }) => {
@@ -18,9 +17,8 @@ const ContactForm = ({ handleSubmit, reset }) => {
       <form onSubmit={ submit } className={ css(styles.form) + ' quicksandRegular' }>
         <Row center="xs">
           <Col>
-            <img className={ css(styles.flower, styles.img) }
-              src={ flowerImg }
-              role="presentation"
+            <CompatibleImg className={ css(styles.flower, styles.img) }
+              imgName="flower1"
             />
           </Col>
         </Row>
@@ -96,9 +94,8 @@ const ContactForm = ({ handleSubmit, reset }) => {
     		</Row>
         <Row center="xs">
           <Col xs={6}>
-            <img className={ css(styles.flower, styles.flower2, styles.img) }
-              src={ flower2Img }
-              role="presentation"
+            <CompatibleImg className={ css(styles.flower, styles.flower2, styles.img) }
+              imgName="flower2"
             />
           </Col>
         </Row>

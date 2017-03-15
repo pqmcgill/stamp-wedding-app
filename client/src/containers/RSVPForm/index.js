@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { updateUser, login } from '../../actions/user';
 import { Grid, Row, Col } from 'react-flexbox-grid-aphrodite';
 import { css } from 'aphrodite';
-import flower1 from '../../assets/flower1.webp';
+import CompatibleImg from '../../components/CompatibleImg';
 import styles from './styles';
 import validate from './validate';
 
@@ -53,11 +53,10 @@ const RSVPFormContainer = ({ user, updateUser, push }) => {
     <Grid fluid>
       <Row center="xs">
   			<Col>
-  				<img
+  				<CompatibleImg
   					className={ css(styles.flower) }
-  					src={ flower1 }
-            role="presentation"
-      />
+  					imgName="flower1"
+                />
   			</Col>
   		</Row>
       <Row>

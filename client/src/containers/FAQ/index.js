@@ -4,8 +4,7 @@ import styles from './style';
 import { Grid, Row, Col } from 'react-flexbox-grid-aphrodite';
 
 import RSVPButton from '../../components/RSVPButton';
-
-import flower from '../../assets/flower2.webp';
+import CompatibleImg from '../../components/CompatibleImg';
 
 export default props => (
 	<Grid className="quicksandRegular">
@@ -67,7 +66,7 @@ export default props => (
 		</Row>
 		<Row center="xs,sm,md,lg" className={ css(styles.flowerWrapper) }>
 			<Col xs={6}>
-				<img className={ css(styles.flower) } src={ flower } role="presentation" />
+				<CompatibleImg className={ css(styles.flower) } imgName="flower2" />
 			</Col>
 		</Row>
 	</Grid>
