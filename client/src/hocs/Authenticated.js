@@ -4,16 +4,15 @@ import { connect } from 'react-redux';
 
 export default ComposedComponent => {
   const Authenticated = ({ authStatus, ...props }) => {
-    console.log(authStatus);
     return (
-      <div>
-        { authStatus === 'AUTH' ?
-          <ComposedComponent { ...props } /> :
-          <Redirect to='/login' />
-        }
-      </div>
-    );
-  };
+          <div>
+            { authStatus === 'AUTH' ?
+              <ComposedComponent { ...props } /> :
+              <Redirect to='/login' />
+            }
+          </div>
+      );
+    }
 
   Authenticated.propTypes = {
     authStatus: PropTypes.string

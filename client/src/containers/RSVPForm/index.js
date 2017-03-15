@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { updateUser } from '../../actions/user';
@@ -15,61 +15,83 @@ let RSVPForm = reduxForm({
   validate
 })(Form);
 
-const RSVPFormContainer = ({ user, updateUser, push }) => {
-  const handleSubmit = function(val) {
-    updateUser(user.id, val, user.token)
+class RSVPFormContainer extends Component {
+  constructor(props) {
+      super(props);
+      this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  shouldComponentUpdate(props) {
+      const newPropKeys = Object.keys(props.user);
+      const oldPropKeys = Object.keys(this.props.user);
+      if (newPropKeys.length !== oldPropKeys.length) {
+          return true;
+      }
+      newPropKeys.forEach(key => {
+          if (oldPropKeys[key] !== newPropKeys[key]) {
+              return true;
+          }
+      });
+      return false;
+  }
+
+  handleSubmit(val) {
+    this.props.updateUser(this.props.user.id, val, this.props.user.token)
         .then(() => {
             document.body.scrollTop = document.documentElement.scrollTop = 0;
-            push('/welcome');
+            this.props.push('/welcome');
         })
         .catch(() => console.log('error'));
-  };
+  }
 
-  const {
-    guestRSVP,
-    plusOneRSVP,
-    guestDinnerSelection,
-    plusOneDinnerSelection,
-    guestBeverageSelection,
-    plusOneBeverageSelection,
-    overnightSelection,
-    iceCreamSelections,
-    song
-  } = user;
+  render() {
+      const {
+        guestRSVP,
+        plusOneRSVP,
+        guestDinnerSelection,
+        plusOneDinnerSelection,
+        guestBeverageSelection,
+        plusOneBeverageSelection,
+        overnightSelection,
+        iceCreamSelections,
+        song
+    } = this.props.user;
 
-  const initialValues = {
-    guestRSVP,
-    plusOneRSVP,
-    guestDinnerSelection,
-    plusOneDinnerSelection,
-    guestBeverageSelection,
-    plusOneBeverageSelection,
-    overnightSelection,
-    iceCreamSelections,
-    song
-  };
+      const initialValues = {
+        guestRSVP,
+        plusOneRSVP,
+        guestDinnerSelection,
+        plusOneDinnerSelection,
+        guestBeverageSelection,
+        plusOneBeverageSelection,
+        overnightSelection,
+        iceCreamSelections,
+        song
+      };
+      console.log('rendering rsvp component');
 
-  return (
-    <Grid fluid>
-      <Row center="xs">
-  			<Col>
-  				<CompatibleImg
-  					className={ css(styles.flower) }
-  					imgName="flower1"
-                />
-  			</Col>
-  		</Row>
-      <Row>
-        <Col xs={12}>
-          <RSVPForm onSubmit={ handleSubmit }
-            initialValues={ initialValues }
-            user={ user }
-          />
-        </Col>
-      </Row>
-    </Grid>
-  );
-};
+      return (
+        <Grid fluid>
+          <Row center="xs">
+      			<Col>
+      				<CompatibleImg
+      					className={ css(styles.flower) }
+      					imgName="flower1"
+                    />
+      			</Col>
+      		</Row>
+          <Row>
+            <Col xs={12}>
+              <RSVPForm onSubmit={ this.handleSubmit }
+                initialValues={ initialValues }
+                user={ this.props.user }
+              />
+            </Col>
+          </Row>
+        </Grid>
+      );
+  }
+}
 
 const mapStateToProps = ({ user }) => ({ user });
 const mapDispatchToProps = { updateUser };
