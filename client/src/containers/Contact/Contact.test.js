@@ -1,7 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Contact from './';
+import { ContactForm } from './';
+
+import styleTestUtil from '../../util/styleTestHelper';
+styleTestUtil();
 
 it('renders without crashing', () => {
-	shallow(<Contact />);
+	shallow(<ContactForm />);
 });

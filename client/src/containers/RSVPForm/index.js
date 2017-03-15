@@ -68,7 +68,6 @@ class RSVPFormContainer extends Component {
         iceCreamSelections,
         song
       };
-      console.log('rendering rsvp component');
 
       return (
         <Grid fluid>

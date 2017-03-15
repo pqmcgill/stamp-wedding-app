@@ -47,7 +47,6 @@ describe('User', () => {
 		const store = mockStore({ user: null });
 		return store.dispatch(actions.login(user.name, user.password))
 			.catch(() => {
-				console.log('here');
 				expect(store.getActions()).toEqual(expectedActions);
 			});
 	});

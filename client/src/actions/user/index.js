@@ -49,7 +49,6 @@ export const login = (username, password) => {
 		})
 		.then(res => res.json())
 		.then(data => {
-			console.log('here');
 			if (data.success) {
 				return dispatch(loginSuccess(data.user));
 			} else {

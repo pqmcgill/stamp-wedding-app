@@ -12,7 +12,6 @@ const LoginFormContainer = ({ login, logout, user, location, push }) => {
 	const handleSubmit = val => {
 		return login(val.username, val.password)
 			.then(res => {
-				console.log(res.user);
 				if (res.user.access === 'admin') {
 					push('/guest-management');
 				} else {

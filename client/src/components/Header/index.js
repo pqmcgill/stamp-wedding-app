@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { StyleSheet, css } from 'aphrodite';
 import { Switch, Route } from 'react-router-dom';
@@ -8,7 +9,7 @@ import RSVPButton from '../RSVPButton';
 
 const style = StyleSheet.create(styles);
 
-const Header = (props) => {
+export const Header = (props) => {
 	const stickyStyle = props.isSticky ? { marginTop: '40px' } : {};
 
 	return (
@@ -32,21 +33,36 @@ const Header = (props) => {
 										<Route path='/rsvp'/>
 										<Route render={ () =>
 											<RSVPButton
-												reminderText="Deadline to RSVP"
-												deadlineText="May 27, 2017"
+												hasSubmittedResponse={ props.hasSubmittedResponse }
 											/>
 										} />
 									</Switch>
 								</Col>
 								<Col xs={12} sm={6} md={6} lg={6}>
-									<Row center="xs" start="sm,md,lg">
-										<Col className={ css(style.rsvpText) } xs={12} sm={12}>
-											Deadline to RSVP
-										</Col>
-										<Col className={ css(style.rsvpText) } xs={12} sm={12}>
-											May 27, 2017
-										</Col>
-									</Row>
+									{ props.hasSubmittedResponse ?
+										<Row center="xs" start="sm,md,lg">
+
+											<Col className={ css(style.rsvpText) } xs={12} sm={12}>
+												Thanks for your response!
+											</Col>
+											<Col className={ css(style.rsvpText) } xs={12} sm={12}>
+												Deadline to make changes
+											</Col>
+											<Col className={ css(style.rsvpText) } xs={12} sm={12}>
+												May 27, 2017
+											</Col>
+										</Row>
+									:
+										<Row center="xs" start="sm,md,lg">
+
+											<Col className={ css(style.rsvpText) } xs={12} sm={12}>
+												Deadline to RSVP
+											</Col>
+											<Col className={ css(style.rsvpText) } xs={12} sm={12}>
+												May 27, 2017
+											</Col>
+										</Row>
+									}
 								</Col>
 							</Row>
 						</div>
@@ -55,5 +71,10 @@ const Header = (props) => {
 			</Grid>
 		</div>
 	);
-}
-export default Header;
+};
+
+const mapStateToProps = ({ user }) => ({
+	hasSubmittedResponse: user.hasSubmittedResponse
+});
+
+export default connect(mapStateToProps)(Header);

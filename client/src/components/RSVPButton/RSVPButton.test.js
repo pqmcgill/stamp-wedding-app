@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { RSVPButton } from './';
+import RSVPButton from './';
 import styleTestHelper from '../../util/styleTestHelper';
 
 styleTestHelper();

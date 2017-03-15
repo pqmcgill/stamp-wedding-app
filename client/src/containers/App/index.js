@@ -6,21 +6,6 @@ import asyncComponent from '../../hocs/asyncComponent';
 import Header from '../../components/Header';
 import NavBar from '../../components/NavBar';
 import LandingPage from '../LandingPage';
-// import LoginForm from '../LoginForm';
-// import FAQ from '../FAQ';
-// import Location from '../Location';
-// import Registry from '../Registry';
-// import Contact from '../Contact';
-// import GuestManagement from '../GuestManagement';
-// import RSVPForm from '../RSVPForm';
-
-// const LandingPage = asyncComponent(() => {
-// 	return new Promise((res) => {
-// 		require.ensure('../LandingPage', () => {
-// 			res(require('../LandingPage').default);
-// 		});
-// 	});
-// });
 
 const RSVPForm = asyncComponent(() => {
 	return new Promise((res) => {

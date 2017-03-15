@@ -16,6 +16,9 @@ export default {
 	},
 
 	complete: {
-		backgroundColor: colors.aquaMarine
+		backgroundColor: colors.aquaMarine,
+		':hover': {
+			backgroundColor: colors.darkAquaMarine
+		}
 	}
 };

@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { css } from 'aphrodite';
 import { Grid, Row, Col } from 'react-flexbox-grid-aphrodite';
 
@@ -6,7 +7,7 @@ import RSVPButton from '../../components/RSVPButton';
 import CompatibleImg from '../../components/CompatibleImg';
 import styles from './style';
 
-export default props => (
+export const Registry = props => (
 	<Grid fluid className={ css(styles.container ) + ' quicksandRegular'}>
 		<Row center="xs">
 			<Col>
@@ -28,14 +29,22 @@ export default props => (
 		</Row>
 		<Row center="xs" className={ css(styles.button) }>
 			<Col>
-				<RSVPButton />
+				<RSVPButton hasSubmittedResponse={ props.hasSubmittedResponse }/>
 			</Col>
 		</Row>
-		<Row center="xs" className={ css(styles.buttonText) }>
-			<Col>
-				<p>Don't forget to RSVP!<br />The deadline is May 27, 2017.</p>
-			</Col>
-		</Row>
+		{ props.hasSubmittedResponse ?
+			<Row center="xs" className={ css(styles.buttonText) }>
+				<Col>
+					<p>Thanks for your response!<br />The deadline to make changes is May 27, 2017.</p>
+				</Col>
+			</Row>
+		:
+			<Row center="xs" className={ css(styles.buttonText) }>
+				<Col>
+					<p>Don't forget to RSVP!<br />The deadline is May 27, 2017.</p>
+				</Col>
+			</Row>
+		}
 		<Row center="xs">
 			<Col xs={6}>
 				<CompatibleImg
@@ -46,3 +55,9 @@ export default props => (
 		</Row>
 	</Grid>
 );
+
+const mapStateToProps = ({ user }) => ({
+	hasSubmittedResponse: user.hasSubmittedResponse
+});
+
+export default connect(mapStateToProps)(Registry);

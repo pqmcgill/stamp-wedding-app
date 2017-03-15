@@ -9,7 +9,6 @@ import { SelectField, TextField } from 'redux-form-material-ui';
 
 const Form = ({ handleSubmit, reset }) => {
 	const submit = e => {
-    console.log(e);
 		handleSubmit(e);
 		reset();
 	}
@@ -21,11 +20,11 @@ const Form = ({ handleSubmit, reset }) => {
   return (
     <form style={ formStyle } onSubmit={ submit }>
       <span>
-        <Field 
-          style={ fieldStyle } 
-          name="username" 
-          component={ TextField } 
-          type="text" 
+        <Field
+          style={ fieldStyle }
+          name="username"
+          component={ TextField }
+          type="text"
           floatingLabelText="Guest name"
         />
       </span>
@@ -39,7 +38,7 @@ const Form = ({ handleSubmit, reset }) => {
         </Field>
       </span>
       <span>
-        <RaisedButton style={ fieldStyle } label="Primary" primary={true} type="submit" /> 
+        <RaisedButton style={ fieldStyle } label="Primary" primary={true} type="submit" />
       </span>
 		</form>
 	);

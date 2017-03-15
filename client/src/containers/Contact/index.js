@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { reduxForm, Field } from 'redux-form';
 import { Grid, Row, Col } from 'react-flexbox-grid-aphrodite';
 import { css } from 'aphrodite';
@@ -6,7 +7,7 @@ import styles from './styles';
 import CompatibleImg from '../../components/CompatibleImg';
 import RSVPButton from '../../components/RSVPButton';
 
-const ContactForm = ({ handleSubmit, reset }) => {
+export const ContactForm = ({ handleSubmit, reset, hasSubmittedResponse }) => {
   const submit = e => {
     handleSubmit(e);
     reset();
@@ -84,14 +85,22 @@ const ContactForm = ({ handleSubmit, reset }) => {
         <hr className={ css(styles.divider) }/>
         <Row center="xs" className={ css(styles.rsvpButton) }>
     			<Col>
-    				<RSVPButton />
+    				<RSVPButton hasSubmittedResponse={ hasSubmittedResponse }/>
     			</Col>
     		</Row>
-    		<Row center="xs" className={ css(styles.rsvpButtonText) }>
-    			<Col>
-    				<p>Don't forget to RSVP!<br />The deadline is May 27, 2017.</p>
-    			</Col>
-    		</Row>
+            { hasSubmittedResponse ?
+    			<Row center="xs" className={ css(styles.rsvpButtonText) }>
+    				<Col>
+    					<p>Thanks for your response!<br />The deadline to make changes is May 27, 2017.</p>
+    				</Col>
+    			</Row>
+    		:
+    			<Row center="xs" className={ css(styles.rsvpButtonText) }>
+    				<Col>
+    					<p>Don't forget to RSVP!<br />The deadline is May 27, 2017.</p>
+    				</Col>
+    			</Row>
+    		}
         <Row center="xs">
           <Col xs={6}>
             <CompatibleImg className={ css(styles.flower, styles.flower2, styles.img) }
@@ -108,7 +117,7 @@ const ConnectedContactForm = reduxForm({
   form: 'contact'
 })(ContactForm);
 
-const Contact = () => {
+const Contact = ({ hasSubmittedResponse }) => {
   const handleSubmit = ({ name, subject, message }) => {
     const formattedMessage = message.replace('\n', '%0D%0A');
     window.open(
@@ -116,7 +125,11 @@ const Contact = () => {
     );
   };
 
-  return <ConnectedContactForm onSubmit={ handleSubmit } />;
+  return <ConnectedContactForm onSubmit={ handleSubmit } hasSubmittedResponse={ hasSubmittedResponse } />;
 };
 
-export default Contact;
+const mapStateToProps = ({ user }) => ({
+	hasSubmittedResponse: user.hasSubmittedResponse
+});
+
+export default connect(mapStateToProps)(Contact);
