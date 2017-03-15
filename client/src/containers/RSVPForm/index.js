@@ -1,7 +1,7 @@
 import React from 'react';
 import { reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
-import { updateUser, login } from '../../actions/user';
+import { updateUser } from '../../actions/user';
 import { Grid, Row, Col } from 'react-flexbox-grid-aphrodite';
 import { css } from 'aphrodite';
 import CompatibleImg from '../../components/CompatibleImg';
