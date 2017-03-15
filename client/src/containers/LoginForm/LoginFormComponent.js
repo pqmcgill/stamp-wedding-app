@@ -40,6 +40,7 @@ const Form = ({ handleSubmit, reset, error }) => {
 									component="input"
 									type="text"
 									placeholder="see your invitation..."
+									autocapitalize="none"
 								/>
 							</Col>
 						</Row>
@@ -55,6 +56,7 @@ const Form = ({ handleSubmit, reset, error }) => {
 									component="input"
 									type="password"
 									placeholder="see your invitation..."
+									autocapitalize="none"
 								/>
 							</Col>
 						</Row>
