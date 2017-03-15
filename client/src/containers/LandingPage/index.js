@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import flowerImg from '../../assets/flower1.webp';
-import flower2Img from '../../assets/flower2.webp';
+// import flower1webp from '../../assets/flower1.webp';
+// import flower2webp from '../../assets/flower2.webp';
+// import flower1png from '../../assets/flower1.png';
+// import flower2png from '../../assets/flower2.png';
+import detectWebpSupport from '../../util/detectWebpSupport';
+import CompatibleImg from '../../components/CompatibleImg';
+// import stamp from '../../assets/stamp.jpg';
 import { css } from 'aphrodite';
 import { Grid, Row, Col } from 'react-flexbox-grid-aphrodite';
 import styles from './styles';
@@ -21,6 +26,10 @@ export class App extends Component {
 	}
 
 	render() {
+		const parallaxStyles = detectWebpSupport() ?
+			css(styles.parallax, styles.parallaxWebp) :
+			css(styles.parallax, styles.parallaxJpg);
+
 		return (
 			<div className={ css(styles.wrapper) }>
 				<div className={ css(styles.content) }>
@@ -28,10 +37,7 @@ export class App extends Component {
 						<Grid fluid>
 							<Row center="xs">
 								<Col>
-									<img className={ css(styles.flower, styles.img) }
-										src={ flowerImg }
-										role="presentation"
-									/>
+									<CompatibleImg imgName="flower1" fallback="png" />
 								</Col>
 							</Row>
 							<Row center="xs" middle="xs">
@@ -44,16 +50,13 @@ export class App extends Component {
 							</Row>
 							<Row center="xs">
 								<Col xs={6}>
-									<img className={ css(styles.flower, styles.flower2, styles.img) }
-										src={ flower2Img }
-										role="presentation"
-									/>
+									<CompatibleImg imgName="flower2" fallback="png" />
 								</Col>
 							</Row>
 						</Grid>
 					</div>
 				</div>
-				<div className={ css(styles.parallax) }>
+				<div className={ parallaxStyles }>
 
 				</div>
 				<div className={ css(styles.quizWrapper) }>

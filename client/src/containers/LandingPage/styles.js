@@ -2,7 +2,8 @@ import { StyleSheet } from 'aphrodite';
 
 import * as fonts from '../../style/fonts';
 import * as colors from '../../style/colors';
-import stampImg from '../../assets/stamp.webp';
+import stampWebp from '../../assets/stamp.webp';
+import stampJpeg from '../../assets/stamp.jpg';
 
 const styles = StyleSheet.create({
 	wrapper: {
@@ -74,13 +75,18 @@ const styles = StyleSheet.create({
 		backgroundPosition: 'center',
 		backgroundRepeat: 'no-repeat',
 		backgroundSize: 'cover',
-		backgroundImage: `url(${stampImg})`,
 		height: '70vh',
-
 		'@media (max-width: 768px)': {
 			height: '400px'
 		}
+	},
 
+	parallaxWebp: {
+		backgroundImage: `url(${stampWebp})`,
+	},
+
+	parallaxJpg: {
+		backgroundImage: `url(${stampJpeg})`
 	}
 });
 
