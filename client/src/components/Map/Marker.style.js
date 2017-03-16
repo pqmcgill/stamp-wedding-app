@@ -10,7 +10,7 @@ const bounce = {
 		opacity: 1,
 		transform: 'translateY(30px) rotate(-45deg)'
 	},
-	'80%': { 
+	'80%': {
 		transform: 'translateY(-10px) rotate(-45deg)'
 	},
 	'100%': {
