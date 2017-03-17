@@ -48,7 +48,7 @@ export default StyleSheet.create({
 
     ':focus': {
       outline: 'none',
-      border: `solid 2px ${colors.pink}`,
+      border: `solid 2px ${colors.aquaMarine}`,
     },
 
   },
@@ -73,7 +73,7 @@ export default StyleSheet.create({
     marginTop: '1em',
 
     ':focus': {
-      backgroundColor: colors.pink
+      backgroundColor: colors.aquaMarine
     },
 
     '@media (max-width: 768px)': {
