@@ -38,7 +38,7 @@ const Form = ({ handleSubmit, reset }) => {
         </Field>
       </span>
       <span>
-        <RaisedButton style={ fieldStyle } label="Primary" primary={true} type="submit" />
+        <RaisedButton style={ fieldStyle } label="Add Guest" primary={true} type="submit" />
       </span>
 		</form>
 	);

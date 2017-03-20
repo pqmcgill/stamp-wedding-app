@@ -5,6 +5,8 @@ import CompatibleImg from '../../components/CompatibleImg';
 import { css } from 'aphrodite';
 import { Grid, Row, Col } from 'react-flexbox-grid-aphrodite';
 import styles from './styles';
+import Quiz from '../Quiz';
+import { startQuiz } from '../../actions/quiz';
 
 const contextTypes = {
 	router: React.PropTypes.object
@@ -62,7 +64,7 @@ export class App extends Component {
 				<div className={ parallaxStyles }>
 
 				</div>
-				<div className={ css(styles.quizWrapper) }>
+				<div className={ css(styles.quizWrapper) } onClick={ this.props.startQuiz }>
 					<Grid fluid className={ css(styles.quizLink) + ' quicksandMedium' }>
 						<Row center="xs">
 							<Col xs={12}>
@@ -71,6 +73,7 @@ export class App extends Component {
 						</Row>
 					</Grid>
 				</div>
+				<Quiz />
 			</div>
 		);
 	}
@@ -78,4 +81,12 @@ export class App extends Component {
 
 App.contextTypes = contextTypes;
 
-export default connect()(App);
+const mapDispatchToProps = dispatch => {
+	return {
+		startQuiz() {
+			dispatch(startQuiz());
+		}
+	};
+};
+
+export default connect(() => ({}), mapDispatchToProps)(App);
