@@ -31,13 +31,15 @@ const styles = {
 
 	directionsHeader: {
 		fontSize: fonts.large,
-		textAlign: 'center'
+		textAlign: 'center',
+		'@media (max-width: 768px)': {
+			margin: '0.5em 0'
+		}
 	},
 
 	directions: {
 		textAlign: 'left',
 		padding: '0 1em',
-		margin: '0.5em 0',
 		fontSize: fonts.smaller,
 
 		// '@media (max-width: 768px)': {
