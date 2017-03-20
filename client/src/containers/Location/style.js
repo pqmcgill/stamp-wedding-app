@@ -37,6 +37,7 @@ const styles = {
 	directions: {
 		textAlign: 'left',
 		padding: '0 1em',
+		margin: '0.5em 0',
 		fontSize: fonts.smaller,
 
 		// '@media (max-width: 768px)': {
