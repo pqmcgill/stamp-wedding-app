@@ -39,7 +39,7 @@ export default props => (
 					className={ css(styles.address) + ' quicksandRegular' }
 				>
 					<Row >
-						<Col xs={6}>
+						<Col xs={12}>
 							<h3 className={ css(styles.header) + ' princessSofia' }>Address</h3>
 							<p>
 								12770 S Jonesville Rd<br />
@@ -47,7 +47,7 @@ export default props => (
 								*Jonesville Rd is also IN-11*
 							</p>
 						</Col>
-						<Col xs={6}
+            {/*<Col xs={6}
 							className={ css(styles.thanks) + ' quicksandRegular'}>
 							<Row center="xs,sm,md,lg">
 								<Col xs={12}>
@@ -59,6 +59,7 @@ export default props => (
 								</Col>
 							</Row>
 						</Col>
+            */}
 						<Col xs={12} sm={12} className={ css(styles.map) }>
 							<Map />
 						</Col>

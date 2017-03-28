@@ -63,7 +63,10 @@ const styles = {
 
 	header: {
 		fontWeight: 400,
-		fontSize: fonts.large
+		fontSize: fonts.large,
+    '@media (max-width: 768px)': {
+      margin: '0.5em 0'
+    }
 	},
 
 	thanksHeader: {
