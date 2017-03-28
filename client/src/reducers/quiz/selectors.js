@@ -1,11 +1,12 @@
 import { createSelector } from 'reselect';
 
 export const activeQuestionIndex = createSelector(
-    state => {
-        return state.questions;
+    quiz => {
+        return quiz.questions;
     },
     questions => {
         return questions.findIndex(question => {
+          console.log(question);
             return question.completed === false;
         });
     }
@@ -16,4 +17,20 @@ export const hasCompletedQuiz = createSelector(
     state => {
         return activeQuestionIndex(state) === -1;
     }
+);
+
+export const visibleQuestions = createSelector(
+  state => state.quiz,
+  quiz => {
+    const activeIndex = activeQuestionIndex(quiz);
+    const completed = quiz.questions.filter(q => q.completed);
+    if (activeIndex >= 0) {
+      return [
+        ...completed,
+        quiz.questions[activeIndex]
+      ];
+    } else {
+      return completed;
+    }
+  }
 );

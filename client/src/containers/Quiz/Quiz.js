@@ -1,21 +1,14 @@
 import React from 'react';
+import QuizQuestion from '../../components/QuizQuestion';
 
-const QuizComponent = ({ questions }) => {
-  const renderChoices = choices =>
-    choices.map((c, i) =>
-        <span key={i}>{ c.value }{' '}</span>
-    );
-
-  const renderQuestions = questions.map(q => {
-    return (
-      <div key={q.qid}>
-        { q.question }
-        {' '}
-        { renderChoices(q.choices) }
-      </div>
-    );
-  });
-
+const QuizComponent = ({ questions, makeGuess }) => {
+  const renderQuestions = questions.map(q =>
+    <QuizQuestion
+      key={q.qid}
+      { ...q }
+      makeGuess={ makeGuess }
+    />
+  );
   return (
     <div>
       { renderQuestions }
@@ -23,11 +16,11 @@ const QuizComponent = ({ questions }) => {
   );
 };
 
-const Quiz = ({ hasStarted, questions }) => {
+const Quiz = ({ hasStarted, questions, makeGuess }) => {
   return (
     <div>
       { hasStarted ?
-        <QuizComponent questions={questions} />
+        <QuizComponent questions={questions} makeGuess={makeGuess}/>
       :''}
     </div>
   );

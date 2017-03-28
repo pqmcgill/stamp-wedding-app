@@ -1,12 +1,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { makeGuess } from '../../actions/quiz';
+import { visibleQuestions } from '../../reducers/quiz/selectors';
 import Quiz from './Quiz';
 
-const mapStateToProps = ({ quiz }) => ({
-    hasStarted: quiz.hasStarted,
-    questions: quiz.questions
+const mapStateToProps = (state) => ({
+    hasStarted: state.quiz.hasStarted,
+    questions: visibleQuestions(state)
 });
 
-const QuizContainer = connect(mapStateToProps)(Quiz);
+const mapDispatchToProps = dispatch => {
+	return {
+		makeGuess() {
+			dispatch(makeGuess.apply(null, arguments));
+		}
+	};
+};
+
+const QuizContainer = connect(mapStateToProps, mapDispatchToProps)(Quiz);
 
 export default QuizContainer;

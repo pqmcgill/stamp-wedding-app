@@ -7,6 +7,7 @@ import { Grid, Row, Col } from 'react-flexbox-grid-aphrodite';
 import styles from './styles';
 import Quiz from '../Quiz';
 import { startQuiz } from '../../actions/quiz';
+import Paper from 'material-ui/Paper';
 
 const contextTypes = {
 	router: React.PropTypes.object
@@ -54,6 +55,8 @@ export class App extends Component {
 									<CompatibleImg
 										imgName="flower2"
 										fallback="png"
+										data-aos="fade-right"
+										data-aos-offset="300"
 										className={ css(styles.flower, styles.flower2, styles.img) }
 									/>
 								</Col>
@@ -64,15 +67,17 @@ export class App extends Component {
 				<div className={ parallaxStyles }>
 
 				</div>
-				<div className={ css(styles.quizWrapper) } onClick={ this.props.startQuiz }>
-					<Grid fluid className={ css(styles.quizLink) + ' quicksandMedium' }>
-						<Row center="xs">
-							<Col xs={12}>
-								Think you know Sam and Pat? Take the quiz to find out!
-							</Col>
-						</Row>
-					</Grid>
-				</div>
+				<Paper zDepth={3}>
+					<div className={ css(styles.quizWrapper) } onClick={ this.props.startQuiz }>
+						<Grid fluid className={ css(styles.quizLink) + ' quicksandMedium' }>
+							<Row center="xs">
+								<Col xs={12}>
+									Think you know Sam and Pat? Take the quiz to find out!
+								</Col>
+							</Row>
+						</Grid>
+					</div>
+				</Paper>
 				<Quiz />
 			</div>
 		);
