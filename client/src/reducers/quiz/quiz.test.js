@@ -1,6 +1,6 @@
 import * as types from '../../ActionTypes';
 import quiz, { question } from './';
-import quizData from './quizData';
+import quizData from './testQuizData';
 import {
     hasCompletedQuiz,
     activeQuestionIndex

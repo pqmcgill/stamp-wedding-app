@@ -1,11 +1,7 @@
 import React from 'react';
-import { findDOMNode } from 'react-dom';
-import { Card, CardActions, CardHeader, CardTitle, CardText, CardMedia } from 'material-ui';
-import FlatButton from 'material-ui/FlatButton';
+import { Card, CardTitle, CardText, CardMedia } from 'material-ui';
 import Paper from 'material-ui/Paper';
-import Toggle from 'material-ui/Toggle';
 import CompatibleImg from '../CompatibleImg';
-import flower2 from '../../assets/flower2.png';
 import { RadioButton, RadioButtonGroup } from 'material-ui/RadioButton';
 import smoothscroll from 'smoothscroll';
 

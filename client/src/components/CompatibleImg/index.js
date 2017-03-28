@@ -5,16 +5,16 @@ const CompatibleImg = ({ imgName, fallback = 'png', ...props }) => {
         <picture>
             <source srcSet={ require(`../../assets/${imgName}.webp`) }
                 type="image/webp"
-                role="presentation"
+                alt={ imgName }
                 { ...props }
             />
             <source srcSet={ require(`../../assets/${imgName}.${fallback}`) }
                 type={`image/${fallback}`}
-                role="presentation"
+                alt={ imgName }
                 { ...props }
             />
             <img src={ require(`../../assets/${imgName}.${fallback}`) }
-                role="presentation"
+              alt={ imgName }
                 { ...props }
             />
         </picture>

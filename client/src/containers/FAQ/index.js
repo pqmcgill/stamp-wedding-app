@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { css } from 'aphrodite';
 import styles from './style';
 import { Grid, Row, Col } from 'react-flexbox-grid-aphrodite';
+import { Link } from 'react-router-dom';
 
 import RSVPButton from '../../components/RSVPButton';
 import CompatibleImg from '../../components/CompatibleImg';
@@ -14,7 +15,15 @@ export const FAQ = props => (
 				<h1 className={ css(styles.header, styles.salutation) + ' princessSofia' }>
 					Dear Friends and Family
 				</h1>
+        <p>We've compiled a list of questions that you may have. <Link to='/contact'><a>Contact us</a></Link> if your questions aren't answered.</p>
 
+        
+				<h2>What should I wear?</h2>
+				<p>
+					It's an outdoor wedding. Forget the suit, but don't settle for jeans. The bride will be wearing flats,
+					we hope you do too.<br /><br /><br />
+				</p>
+    
 				<h2>Where will you stay?</h2>
 				<p>
 					We suggest you bring camping equipment and sleep on the property. We will be!
@@ -29,21 +38,45 @@ export const FAQ = props => (
 						<li>Indy Bound: Book a hotel on SR 46 in Columbus. It's right off the interstate.</li>
 						<li>Louisville Bound: Book a hotel in Seymour. It's right off the interstate... Columbus has more to offer</li>
 					</ul>
+          <br />
+        </div>
+
+
+        <h2>What does transportation look like?</h2>
+        <p>
+          You may park your car overnight at the wedding site, no problem.
+        </p>
 					<h3 className={ css(styles.centered) + ' quicksandMedium' }>
 						There will not be a designated shuttle. If you plan to drink, plan accordingly.
 						We want everyone to be safe.
 					</h3>
+          <p>
+            If you can't stay overnight then Uber is a definite option, or simply coordinate a ride with other responsible
+            guests. Read below for a link to our guest-2-guest communication serving facebook group.
+          </p>
 					<br />
-				</div>
-				<h2>What do you wear?</h2>
-				<p>
-					It's an outdoor wedding. Forget the suit, but don't settle for jeans. The bride will be wearing flats,
-					we hope you do too.<br /><br /><br />
-				</p>
+
+        <h2>Do I need my I.D.?</h2>
+        <p>
+          The bartender wants to keep her license. Make sure you bring your I.D. We're offering wine and beer.
+        </p>
+        <br />
+
+        <h2>Where is the reception</h2>
+        <p>The reception will take place on the property at the same location as the wedding</p>
+        <br />
+
+        <h2>When can I setup my tent?</h2>
+        <p>
+          You can setup your tent any time you'd like. You can set up at 10:00am and head out for the day. You can set up 45
+          minutes before the ceremony. You can even set up during the outdoor games portion of the wedding. Feel free to bring your
+          camp chairs for extra comfort around the fire.
+        </p>
+        <br />
 
 				<h2>And last but not least...</h2>
 				<p>
-					We are making a Facebook event! It's for guest-to-guest communication. You can post
+          We've made a <a href="https://www.facebook.com/groups/412219222486294/" target="_blank">Facebook group!</a> It's for guest-to-guest communication. You can post
 					things like "Does anyone need a ride from the airport?" or "Does anyone have a tent I can borrow?"
 					or "I'm not sleeping on the property. Will there be any sober drivers to catch a ride with?"
 					Check it out!

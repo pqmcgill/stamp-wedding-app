@@ -6,7 +6,6 @@ export const activeQuestionIndex = createSelector(
     },
     questions => {
         return questions.findIndex(question => {
-          console.log(question);
             return question.completed === false;
         });
     }

@@ -1,38 +1,39 @@
 import * as types from '../../ActionTypes';
-import quizData from './quizData';
 
-import checkAnswer from './selectors';
+let quizData;
 
-export const choice = (state = {}, action) => {
-    switch(action.type) {
-        case types.MAKE_GUESS:
-            if (action.guess === state.key) {
-                return {
-                    ...state,
-                    guessed: true
-                };
-            }
-        default:
-            return state;
-    }
+// load mock data in the context of tests
+if (process.env.NODE_ENV === 'test') {
+  quizData = require('./testQuizData').default;
+} else {
+  quizData = require('./quizData').default;
+}
+
+export const choice = (state = {}, { type, guess }) => {
+  if (type === types.MAKE_GUESS && guess === state.key) {
+    return {
+      ...state,
+      guessed: true
+    };
+  } else {
+    return state;
+  }
 };
 
 export const question = (state = {}, action) => {
-    switch(action.type) {
-        case types.MAKE_GUESS:
-            if (action.qid === state.qid && action.guess === state.answer) {
-                return {
-                    ...state,
-                    choices: state.choices.map(c => choice(c, action)),
-                    completed: true
-                };
-            }
-        default:
-            return {
-                ...state,
-                choices: state.choices.map(c => choice(c, action))
-            };
-    }
+  const { type, qid, guess } = action;
+  if ( type === types.MAKE_GUESS && qid === state.qid && guess === state.answer) {
+    return {
+      ...state,
+      choices: state.choices.map(c => choice(c, action)),
+      completed: true
+    };
+  } else {
+    return {
+      ...state,
+      choices: state.choices.map(c => choice(c, action))
+    };
+  }
 };
 
 export default (state = quizData, action) => {

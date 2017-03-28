@@ -1,4 +1,3 @@
-import React from 'react';
 import { connect } from 'react-redux';
 import { makeGuess } from '../../actions/quiz';
 import { visibleQuestions } from '../../reducers/quiz/selectors';
