@@ -46,9 +46,9 @@ export class GuestManagement extends Component {
           <TableRowColumn>{ guest.username }</TableRowColumn> 
           <TableRowColumn>{ guest.password }</TableRowColumn>
           <TableRowColumn>{ guest.guestName }</TableRowColumn>
-          <TableRowColumn>{ guest.guestConfirmation ? 'yes' : 'no' }</TableRowColumn>
+          <TableRowColumn>{ guest.guestRSVP ? 'YES' : 'NO' }</TableRowColumn>
           <TableRowColumn>{ guest.plusOneName }</TableRowColumn>
-          <TableRowColumn>{ guest.plusOneConfirmation ? 'yes': 'no' }</TableRowColumn>
+          <TableRowColumn>{ guest.plusOneRSVP ? 'YES': 'NO' }</TableRowColumn>
           <TableRowColumn>{ guest.affiliation }</TableRowColumn>
           <TableRowColumn>
             <button className="delete" onClick={ this.handleDelete.bind(null, guest._id) }>x</button>
