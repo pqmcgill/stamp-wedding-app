@@ -8,11 +8,13 @@ const LoginForm = reduxForm({
 	form: 'login'
 })(Form);
 
-const LoginFormContainer = ({ login, logout, user, location, push }) => {
+const LoginFormContainer = ({ ...props, login, logout, user, history }) => {
+  const { push } = history;
 	const handleSubmit = val => {
 		return login(val.username, val.password)
 			.then(res => {
 				if (res.user.access === 'admin') {
+          console.log(push);
 					push('/guest-management');
 				} else {
 					push('/rsvp');
