@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import AdminOnly from '../../hocs/AdminOnly';
 import Authenticated from '../../hocs/Authenticated';
 import asyncComponent from '../../hocs/asyncComponent';
@@ -136,7 +136,8 @@ export default class App extends Component {
 									<Route path='/rsvp' component={ AuthRSVPForm } />
 									<Route path='/registry' component={ Registry } />
 									<Route path='/contact' component={ Contact } />
-									<Route component={ LandingPage } />
+									<Route path='/welcome' component={ LandingPage } />
+									<Redirect to='/welcome' />
 								</Switch>
 							</div>
 						</div>

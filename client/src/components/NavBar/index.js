@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { StyleSheet, css } from 'aphrodite';
 import { Grid, Row, Col } from 'react-flexbox-grid-aphrodite';
 import Home from 'material-ui/svg-icons/action/home'
@@ -21,6 +21,13 @@ const NavBar = (props) => {
 			position: 'static'
 	};
 
+	const MyNavLink = props => {
+		return <NavLink
+			activeClassName={ css(styles.activeLink) }
+			{ ...props }
+		/>
+	};
+
 	return (
 		<div className={ css(styles.wrapper) }>
 			<Grid
@@ -29,30 +36,30 @@ const NavBar = (props) => {
       >
         <Row className={ css(styles.nav) }
           center="xs" start="md,lg">
-          <Col mdOffset={1} lgOffset={1}>
-            <Link className={ css(styles.link, styles.home) } to='/'>
+          <Col mdOffset={1} lgOffset={1} className={ css(styles.first) }>
+            <MyNavLink className={ css(styles.link, styles.iconLink) } to='/welcome'>
               <Home className={ css(styles.home) }/>
-            </Link>
+            </MyNavLink>
           </Col>
           <Col>
-            <Link className={ css(styles.link) } to='/location'>
+            <MyNavLink className={ css(styles.link) } to='/location'>
               Location
-            </Link>
+            </MyNavLink>
           </Col>
           <Col>
-            <Link className={ css(styles.link) } to='/faq'>
+            <MyNavLink className={ css(styles.link) } to='/faq'>
               FAQ
-            </Link>
+            </MyNavLink>
           </Col>
           <Col>
-            <Link className={ css(styles.link) } to='/registry'>
+            <MyNavLink className={ css(styles.link) } to='/registry'>
               Registry
-            </Link>
+            </MyNavLink>
           </Col>
           <Col>
-            <Link className={ css(styles.link) } to='/contact'>
+            <MyNavLink className={ css(styles.link) } to='/contact'>
               Contact
-            </Link>
+            </MyNavLink>
           </Col>
         </Row>
       </Grid>

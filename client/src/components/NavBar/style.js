@@ -28,20 +28,34 @@ const styles = {
 		textAlign: 'center',
 		padding: '0 0.5rem',
 		textDecoration: 'none',
-
+		transition: 'color .2s',
 		':hover': {
 			color: colors.blue,
 			backgroundColor: colors.white
 		}
 	},
 
+	activeLink: {
+		color: colors.blue,
+		backgroundColor: colors.white
+	},
+
+	iconLink: {
+		lineHeight: '3.25rem'
+	},
+
   home: {
-    color: 'white',
-    lineHeight: '2.75em',
+		height: '2rem',
+		width: '2rem',
+		color: 'inherit',
     ':hover': {
       color: colors.blue
     }
-  }
+	},
+
+	first: {
+		padding: 0
+	}
 
 };
 

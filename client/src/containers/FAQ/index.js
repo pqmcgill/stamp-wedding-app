@@ -15,7 +15,7 @@ export const FAQ = props => (
 				<h1 className={ css(styles.header, styles.salutation) + ' princessSofia' }>
 					Dear Friends and Family
 				</h1>
-        <p>We've compiled a list of questions that you may have. <Link to='/contact'><a>Contact us</a></Link> if your questions aren't answered.</p>
+        <p>We've compiled a list of questions that you may have. <Link to='/contact'>Contact us</Link> if your questions aren't answered.</p>
 
         
 				<h2>What should I wear?</h2>
