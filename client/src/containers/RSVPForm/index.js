@@ -39,7 +39,7 @@ class RSVPFormContainer extends Component {
     this.props.updateUser(this.props.user.id, val, this.props.user.token)
         .then(() => {
             document.body.scrollTop = document.documentElement.scrollTop = 0;
-            this.props.push('/welcome');
+            this.props.history.push('/welcome');
         })
         .catch(() => console.log('error'));
   }
