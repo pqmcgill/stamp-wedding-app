@@ -35,6 +35,14 @@ const styles = {
 		}
 	},
 
+  home: {
+    color: 'white',
+    lineHeight: '2.75em',
+    ':hover': {
+      color: colors.blue
+    }
+  }
+
 };
 
 export default styles;
