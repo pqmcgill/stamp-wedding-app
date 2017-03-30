@@ -3,10 +3,8 @@ import { Card, CardTitle, CardText, CardMedia } from 'material-ui';
 import Paper from 'material-ui/Paper';
 import CompatibleImg from '../CompatibleImg';
 import { RadioButton, RadioButtonGroup } from 'material-ui/RadioButton';
-import FloatingActionButton from 'material-ui/FloatingActionButton';
 import smoothscroll from 'smoothscroll';
 import { css } from 'aphrodite';
-import More from 'material-ui/svg-icons/navigation/expand-more';
 import style from './style';
 
 class QuizQuestion extends React.Component {
