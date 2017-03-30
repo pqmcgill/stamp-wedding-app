@@ -22,11 +22,12 @@ const styles = {
 	},
 
 	link: {
-		display: 'block',
-		height: '35px',
+		display: 'flex',
+		alignItems: 'center',
+		height: '30px',
 		color: colors.white,
 		textAlign: 'center',
-		padding: '0 0.5rem',
+		padding: '5px 0.5rem 0 0.5rem',
 		textDecoration: 'none',
 		transition: 'color .2s',
 		':hover': {

@@ -1,5 +1,8 @@
 import React from 'react';
 import QuizQuestion from '../../components/QuizQuestion';
+import { Grid, Row, Col } from 'react-flexbox-grid-aphrodite';
+import { css } from 'aphrodite';
+import style from './style';
 
 const QuizComponent = ({ questions, makeGuess }) => {
   const renderQuestions = questions.map(q =>
@@ -10,20 +13,21 @@ const QuizComponent = ({ questions, makeGuess }) => {
     />
   );
   return (
-    <div>
+    <Col xs={12} sm={10} md={8} lg={8}>
       { renderQuestions }
-    </div>
+    </Col>
   );
 };
 
 const Quiz = ({ hasStarted, questions, makeGuess }) => {
-  return (
-    <div>
-      { hasStarted ?
-        <QuizComponent questions={questions} makeGuess={makeGuess}/>
-      :''}
-    </div>
-  );
+
+	return hasStarted ? (
+		<Grid className={ css(style.quiz) }>
+			<Row center='xs,sm,md,lg'>
+				<QuizComponent questions={questions} makeGuess={makeGuess}/>
+			</Row>
+		</Grid>
+	) : <span style={{display:'none'}} />; 
 };
 
 export default Quiz;

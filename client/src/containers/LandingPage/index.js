@@ -8,6 +8,7 @@ import styles from './styles';
 import Quiz from '../Quiz';
 import { startQuiz } from '../../actions/quiz';
 import Paper from 'material-ui/Paper';
+import smoothscroll from 'smoothscroll';
 
 const contextTypes = {
 	router: React.PropTypes.object
@@ -90,6 +91,7 @@ const mapDispatchToProps = dispatch => {
 	return {
 		startQuiz() {
 			dispatch(startQuiz());
+			smoothscroll(document.getElementById('question-0'));
 		}
 	};
 };

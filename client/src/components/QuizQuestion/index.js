@@ -3,7 +3,11 @@ import { Card, CardTitle, CardText, CardMedia } from 'material-ui';
 import Paper from 'material-ui/Paper';
 import CompatibleImg from '../CompatibleImg';
 import { RadioButton, RadioButtonGroup } from 'material-ui/RadioButton';
+import FloatingActionButton from 'material-ui/FloatingActionButton';
 import smoothscroll from 'smoothscroll';
+import { css } from 'aphrodite';
+import More from 'material-ui/svg-icons/navigation/expand-more';
+import style from './style';
 
 class QuizQuestion extends React.Component {
   constructor(props) {
@@ -28,7 +32,7 @@ class QuizQuestion extends React.Component {
   handleScrollTo() {
     setTimeout(() => {
       console.log('checking...');
-      const nextQuestion = document.getElementById(`question-${this.props.qid}`);
+      const nextQuestion = document.getElementById(`target-question-${this.props.qid}`);
       console.log(nextQuestion);
       if (nextQuestion) {
           smoothscroll(nextQuestion);
@@ -38,21 +42,33 @@ class QuizQuestion extends React.Component {
 
   render() {
     return (
+			<div className={ css(style.questionContainer)}>
+				<Paper
+					zDepth={1}
+					className={css(style.timeline)}
+				/>
+				<Paper circle={true} 
+					className={ css(style.moreCircle) }
+					zDepth={2}
+				>
+				<span className={ 'princessSofia ' + css(style.moreInner) }>{ `201${this.props.qid + 1}`}</span>
+			</Paper>
       <Paper
         id={`question-${this.props.qid}`}
         zDepth={3}
-        style={{width: '500px', margin: '20px auto'}}
+				className={ css(style.question) }
       >
         <Card expanded={this.props.completed} onExpandChange={this.handleScrollTo}>
           <CardTitle
             title={ this.props.question }
           />
           <CardText>
-            <RadioButtonGroup name="foo" onChange={this.handleExpandChange}>
+            <RadioButtonGroup name="foo" onChange={this.handleExpandChange} className={ css(style.buttonGroup) }>
               {
                 this.props.choices.map((choice, i) => {
                   return <RadioButton
                     key={i}
+										className={ css(style.radio) }
                     value={ choice.key }
                     label={ choice.value }
                   />
@@ -61,6 +77,7 @@ class QuizQuestion extends React.Component {
             </RadioButtonGroup>
           </CardText>
           <CardMedia
+						id={ `target-question-${this.props.qid}` }
             expandable={true}
           >
             <CompatibleImg
@@ -68,13 +85,16 @@ class QuizQuestion extends React.Component {
               fallback="jpg"
             />
           </CardMedia>
-          <CardText expandable={true}>
+					<CardText expandable={true}
+						className={ css(style.blurb) }
+					>
             { this.props.rewardBlurb }
           </CardText>
 
         </Card>
-        <span id={`question-${this.props.qid}`} style={{visibility: 'hidden'}}></span>
       </Paper>
+
+		</div>
     );
   }
 };
