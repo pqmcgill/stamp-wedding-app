@@ -6,11 +6,30 @@ import { Switch, Route } from 'react-router-dom';
 import { Grid, Row, Col } from 'react-flexbox-grid-aphrodite';
 import styles from './style';
 import RSVPButton from '../RSVPButton';
+import { logout } from '../../actions/user'
 
 const style = StyleSheet.create(styles);
 
 export const Header = (props) => {
 	const stickyStyle = props.isSticky ? { marginTop: '40px' } : {};
+
+  const handleLogout = () => {
+    props.logout();
+    props.history.push('/');
+  };
+
+  const Logout = () => <a className={ css(style.logout) } onClick={ handleLogout }>Logout</a>;
+  const RSVP = () => <RSVPButton
+    hasSubmittedResponse={ props.hasSubmittedResponse }
+  />;
+
+  const ShowButton = () => {
+    return <Switch>
+        <Route path='/rsvp' component={ Logout } />
+        <Route path='/guest-management' component={ Logout } />
+        <Route component={ RSVP } />
+      </Switch>;
+  };
 
 	return (
 		<div className={ css(style.wrapper) }>
@@ -27,23 +46,16 @@ export const Header = (props) => {
 						<div className={ `${css(style.rsvpContainer)} quicksandRegular` }>
 							<Row middle="xs,sm,md,lg" end="sm,md,lg">
 								<Col xs={12} sm={6} md={6} lg={6}
-									className={ css(style.rsvp) }
+								className={ css(style.rsvp) }
 								>
-									<Switch>
-										<Route path='/rsvp'/>
-										<Route render={ () =>
-											<RSVPButton
-												hasSubmittedResponse={ props.hasSubmittedResponse }
-											/>
-										} />
-									</Switch>
+                  <ShowButton />
 								</Col>
 								<Col xs={12} sm={6} md={6} lg={6}>
 									{ props.hasSubmittedResponse ?
 										<Row center="xs" start="sm,md,lg">
 
 											<Col className={ css(style.rsvpText) } xs={12} sm={12}>
-												Thanks for your response!
+                        Thanks for your response!
 											</Col>
 											<Col className={ css(style.rsvpText) } xs={12} sm={12}>
 												Deadline to make changes
@@ -77,4 +89,8 @@ const mapStateToProps = ({ user }) => ({
 	hasSubmittedResponse: user.hasSubmittedResponse
 });
 
-export default connect(mapStateToProps)(Header);
+const mapDispatchToProps = {
+  logout
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

@@ -38,5 +38,16 @@ export default {
 	rsvpText: {
 		fontSize: fonts.smallerer,
 		fontWeight: 200
-	}
+  },
+
+  logout: {
+    cursor: 'pointer',
+    fontSize: fonts.smaller,
+    textDecoration: 'underline',
+    position: 'relative',
+    top: '0.1em',
+    ':hover': {
+      color: colors.pink
+    }
+  }
 };

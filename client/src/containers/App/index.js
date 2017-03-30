@@ -118,14 +118,19 @@ export default class App extends Component {
 		}
 	}
 
+
 	render () {
+    const StickyHeader = (props) => {
+      return <Header { ...props } isSticky={ this.state.isSticky } />
+    };
+
 		return (
 			<div className={ css(style.wrapper) }>
 				<Switch>
 					<Route path='/login' component={ LoginForm } />
 					<Route render={() =>
 						<div>
-							<Header isSticky={ this.state.isSticky }/>
+              <Route path='/' component={ StickyHeader } />
 							<NavBar isSticky={ this.state.isSticky }/>
 							<div className={ css(style.content) }>
 								<Switch>
