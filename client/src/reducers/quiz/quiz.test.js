@@ -49,7 +49,7 @@ it('should not yet be complete when the test starts', () => {
     expect(hasCompletedQuiz(nextState)).toBe(false);
 });
 
-it('should not update completed status of question upon an incorrect answer', () => {
+it('should update completed status of question upon an incorrect answer', () => {
     const prevState = {
         qid: 0,
         choices: [
@@ -68,7 +68,29 @@ it('should not update completed status of question upon an incorrect answer', ()
     };
 
     const nextState = question(prevState, action);
-    expect(nextState.completed).toBe(false);
+    expect(nextState.completed).toBe(true);
+});
+
+it('should update the corret status of question upon an incorrect answer', () => {
+	const prevState = {
+		qid: 0,
+		choices: [
+			{ key: 'a', value: 'foo', guessed: false },
+			{ key: 'b', value: 'bar', guessed: false },
+			{ key: 'c', value: 'foobar', guessed: false }
+		],
+		completed: false,
+		answer: 'c'
+	};
+
+	const action = {
+		type: types.MAKE_GUESS,
+		qid: 0,
+		guess: 'b'
+	};
+
+	const nextState = question(prevState, action);
+	expect(nextState.correct).toBe(false);
 });
 
 it('should update guessed status of question choice upon answering incorrectly', () => {
@@ -92,7 +114,7 @@ it('should update guessed status of question choice upon answering incorrectly',
     expect(nextState.choices[1].guessed).toBe(true);
 });
 
-it('should not change the active question upon answering incorrectly', () => {
+it('should change the active question upon answering incorrectly', () => {
     const prevState = { ...quizData, hasStarted: true };
     const action = {
         type: types.MAKE_GUESS,
@@ -101,7 +123,7 @@ it('should not change the active question upon answering incorrectly', () => {
     };
     const prevActiveQuestion = activeQuestionIndex(prevState);
     const nextState = quiz(prevState, action);
-    expect(activeQuestionIndex(nextState)).toBe(prevActiveQuestion);
+    expect(activeQuestionIndex(nextState)).toBe(prevActiveQuestion + 1);
 });
 
 it('should update completed status of question upon a correct answer', () => {
