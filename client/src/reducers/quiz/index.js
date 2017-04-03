@@ -22,11 +22,13 @@ export const choice = (state = {}, { type, guess }) => {
 
 export const question = (state = {}, action) => {
   const { type, qid, guess } = action;
-  if ( type === types.MAKE_GUESS && qid === state.qid && guess === state.answer) {
+  if ( type === types.MAKE_GUESS && qid === state.qid) {
+		const correct = guess === state.answer;
     return {
       ...state,
       choices: state.choices.map(c => choice(c, action)),
-      completed: true
+			completed: true,
+			correct
     };
   } else {
     return {
