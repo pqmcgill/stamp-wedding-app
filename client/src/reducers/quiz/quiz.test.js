@@ -49,6 +49,28 @@ it('should not yet be complete when the test starts', () => {
     expect(hasCompletedQuiz(nextState)).toBe(false);
 });
 
+it('should update question the user\'s choice upon an answer', () => {
+  const prevState = {
+    qid: 0,
+    choices: [
+      { key: 'a', value: 'foo', guessed: false },
+      { key: 'b', value: 'bar', guessed: false },
+      { key: 'c', value: 'foobar', guessed: false }
+    ],
+    completed: false,
+    answer: 'c'
+  };
+
+  const action = {
+    type: types.MAKE_GUESS,
+    qid: 0,
+    guess: 'b'
+  };
+
+  const nextState = question(prevState, action);
+  expect(nextState.guess).toBe('b');
+});
+
 it('should update completed status of question upon an incorrect answer', () => {
     const prevState = {
         qid: 0,

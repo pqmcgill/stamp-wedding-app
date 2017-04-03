@@ -61,7 +61,11 @@ class QuizQuestion extends React.Component {
             title={ this.props.question }
           />
           <CardText>
-            <RadioButtonGroup name="foo" onChange={this.handleExpandChange} className={ css(style.buttonGroup) }>
+            <RadioButtonGroup name="foo" 
+              onChange={this.handleExpandChange} 
+              className={ css(style.buttonGroup) }
+              defaultSelected={ this.props.guess }
+            >
               {
                 this.props.choices.map((choice, i) => {
                   return <RadioButton
@@ -69,6 +73,7 @@ class QuizQuestion extends React.Component {
 										className={ css(style.radio) }
                     value={ choice.key }
                     label={ choice.value }
+                    disabled={ this.props.guess }
                   />
                 })
               }
@@ -83,6 +88,14 @@ class QuizQuestion extends React.Component {
               fallback="jpg"
             />
           </CardMedia>
+          { this.props.guess === this.props.answer ?
+            <CardTitle expandable={true} className={'quicksandBold ' + css(style.correct)}>
+              { this.props.correctMsg }
+            </CardTitle> :
+            <CardTitle expandable={true} className={'quicksandBold ' + css(style.incorrect)}>
+              { this.props.incorrectMsg }
+            </CardTitle>
+          }
 					<CardText expandable={true}
 						className={ css(style.blurb) }
 					>

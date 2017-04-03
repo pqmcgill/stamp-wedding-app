@@ -28,7 +28,8 @@ export const question = (state = {}, action) => {
       ...state,
       choices: state.choices.map(c => choice(c, action)),
 			completed: true,
-			correct
+      correct,
+      guess
     };
   } else {
     return {

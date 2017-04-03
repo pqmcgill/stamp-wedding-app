@@ -14,6 +14,7 @@ export default {
             rewardBlurb: 'Sam and Pat met thanks to their friend Mike. Sam met Mike while working at an IU football game. They hit it off well and he invited her to a party. Sam saw Pat as soon as she entered Mike’s apartment and instantly knew that he was someone special. Pat knew she was the one, but only after Sam initiated conversation with him. P.S. Mike is the one in the red. He’s their favorite person.',
             completed: false,
 						imgName: 'friends',
+            correctMsg: 'You got it!',
 						incorrectMsg: 'Well, crap on a stick! The correct answer is Bloomington, IN 9-10-2011'
         },
         {
@@ -23,11 +24,12 @@ export default {
                 { key: 'a', value: 'True', guessed: false },
                 { key: 'b', value: 'False', guessed: false }
             ],
-            answer: 'a',
+            answer: 'b',
             rewardImg: 'stamp',
-            rewardBlurb: 'The two of them had been dating/spent everyday together for 17 days. Pat really wanted to kiss Sam, but she was freaking out. They were close friends for over a year, so can you really blame her? Sam was dropping Pat off at his apartment and he wanted to celebrate the fact that the world didn’t end on 12/21/12 with a kiss. Sam shut him down. He was bummed and got out of the car. She realized that this would be the last time they would see each other for awhile, so she jumped out of her car and yelled, “Wait!” She went running after him in the snow and fell on the ice. He laughed, they kissed and the relationship survived.',
+            rewardBlurb: 'Having been friends now for roughly a year, the two of them had finally made the decision to cut the crap and start dating. They dated for a little while (17 days, to be precise), and during that time Pat really wanted to kiss Sam, but she was freaking out, and would subtly maneuver herself away from any such opportunity. They had been close friends for over a year, so can you really blame her? Pat maintained his sanity by subscribing to the principle that good things happen to those who wait. On the night of 12/21/12, Sam was dropping Pat off at his apartment and he really wanted to celebrate the fact that the world didn\'t end with a kiss. Sam shut him down. He was bummed and got out of the car. They were set to go to their respective homes for the holidays, and she realized that this would be the last time they would see each other for a while, so she jumped out of her car and yelled, "Wait!" She went running after him in the snow and cartoonishly slipped, then fell on the ice. He laughed, they kissed, and haven\'t stopped ever since.',
             completed: false,
 						imgName: 'kiss',
+            correctMsg: 'that is correct! In fact, they were both nervous!',
 						incorrectMsg: 'What in the Sam Hill are you talking about? They were both nervous. It was a 1st kiss.'
         },
         {
@@ -39,9 +41,10 @@ export default {
             ],
             answer: 'b',
             imgName: 'stamp',
-            rewardBlurb: 'Sam could see the look of love in Pat’s eyes the morning of January 30th, 2013. She spent the whole day asking him what he was thinking, but he refused to tell her. Later that night he put her hand on his heart and said, “My heart is beating fast because I’m in love with you.” Sam put his hand on her heart and said, “My heart is skipping because I’m in love with you.” He’s called her Skippy ever since then. ',
+            rewardBlurb: 'Sam could see the look of love in Pat’s eyes the morning of January 30th, 2013. She spent the whole day asking him what he was thinking, but he refused to tell her. Later that night he put her hand on his heart and said, “My heart is beating fast because I’m in love with you.” Sam put his hand on her heart and said, “My heart is skipping because I’m in love with you.” He’s called her Skippy from that night forward. ',
 						completed: false,
-						incorrectMsg: 'Sam\'s the talker, but Pad said I love you 1st'
+            correctMsg: 'You\'d think it was Sam... her being the talker and all, but you\'re right... it was Pat',
+						incorrectMsg: 'I know what you\'re thinking... Sam\'s the talker, but it was Pat who said "I love you" 1st'
         },
         {
             qid: 3,
@@ -53,10 +56,12 @@ export default {
             ],
             answer: 'c',
             imgName: 'mackinac',
-            rewardBlurb: 'When the couple first started dating they laid out everything that they would need as individuals and as a couple. Travel was toward the top of  list Sam’s list. Pat said he was fine with moving back to Indy after college and never going anywhere. They agreed that travel might be something that Sam would do on her own. That all changed the weekend of May 31, 2014 when they went to Mackinac Island. They’ve since travelled together to Ireland twice, Portugal and Catalina Island. Suzanne Perkett went with them to Catalina, so clearly that was their favorite trip.They’ll be honeymooning in Italy and Greece...with a pit stop in Ireland, of course.',
+            rewardBlurb: 'Way back when the couople first started dating they laid out everything they would need as individuals and as a couple. Traveling the world was near the top of Sam\'s list. Pat, with a much more humble worldview, never really saw travelling as a priority. "... what with all the packing, and the driving, and the airports, and the planning... it\'s a whole thing!", said Pat. "I\'ll just have to go on my own then!", exclaimed Sam. Pat, landing on the notion that somebody has to carry the suitcase, decided that he would follow, and with that, they set off the weekend of May 31, 2014 on their first adventure together to Mackinac Island. They\'ve since been on an expedition to Portugal (stopping in Ireland on the way), Catalina Island with their friend and borderline life partner, Suzanne Perkett, another extended two week stay in Ireland including a country-wide road trip, and they\'ll soon be honeymooning in Italy and Greece... with a pit stop in Ireland, of course.',
 						completed: false,
+            correctMsg: 'You got it!',
 						incorrectMsg: 'Oopsy Daisy! Mackinac Island was their 1st vacation together'
         },
+        // TODO: revise this question
         {
             qid: 4,
             question: 'True or False - The couple signed their 1st lease 4 months after dating, but didn’t permanently live together until 2015. ',
@@ -74,7 +79,7 @@ export default {
             qid: 5,
             question: 'Sam and Pat are already married! Do you know how the "proposal" happened?',
             choices: [
-                { key: 'a', value: 'Sam\'s school doesn\'t offer insurance, so sh asked Pat if he would elope with her and have a wedding later.', guessed: false },
+                { key: 'a', value: 'Sam\'s school doesn\'t offer insurance, so she asked Pat if he would elope with her and have a wedding later.', guessed: false },
                 { key: 'b', value: 'Sam found the ring in Pat\'s closet. Pat felt bad about the surprise being ruined and suggested they elope', guessed: false },
 								{ key: 'c', value: 'Pat said the pressure of a proposal was too much and asked Sam if she\'d elope with him', guessed: false },
             ],
@@ -82,7 +87,8 @@ export default {
             imgName: 'glasses',
 						rewardBlurb: 'Sam needed insurance. She asked Pat if he would elope with her and he agreed to be her happily insured husband. They eloped 4 days later on July 18, 2016. Sam wore a dress that she purchased 3 years prior. She wasn\'t sure how they would get married, but she kew they would and she wanted to be prepared.',
 						completed: false,
-						incorrectMsg: 'What\'s better than a birthday card? A health insurance card.'
+            correctMsg: 'Nothing says "love" more than offering to share some decent health benefits.',
+						incorrectMsg: 'Nope! Never underestimate the power to decent health benefits.'
         }
     ],
 

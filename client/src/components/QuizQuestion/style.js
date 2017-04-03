@@ -47,5 +47,15 @@ export default StyleSheet.create({
 
 	radio: {
 		padding: '0.25em 0'
-	}
+  },
+
+  correct: {
+    fontSize: fonts.smallerer,
+    color: colors.aquaMarine
+  },
+
+  incorrect: {
+    fontSize: fonts.smallerer,
+    color: colors.red
+  }
 });
