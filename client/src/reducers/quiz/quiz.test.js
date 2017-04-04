@@ -2,8 +2,9 @@ import * as types from '../../ActionTypes';
 import quiz, { question } from './';
 import quizData from './testQuizData';
 import {
-    hasCompletedQuiz,
-    activeQuestionIndex
+  hasCompletedQuiz,
+  activeQuestionIndex,
+  score
 } from './selectors';
 
 it('should be defined', () => {
@@ -237,4 +238,43 @@ it('should be complete if all questions have been answered correctly', () => {
         });
     }, prevState);
     expect(hasCompletedQuiz(nextState)).toBe(true);
+});
+
+it('should give me an updated score', () => {
+  const prevState = { quiz: quizData };
+  const firstRoundGuesses = ['a', 'c', 'b'];
+  const firstRoundNextState = firstRoundGuesses.reduce((acc, guess, i) => {
+    return quiz(acc, {
+      type: types.MAKE_GUESS,
+      qid: i,
+      guess
+    });
+  }, prevState.quiz); 
+
+  expect(score(firstRoundNextState)).toBe(3);
+
+  const secondRoundGuesses = ['a', 'c', 'd'];
+  const secondRoundNextState = secondRoundGuesses.reduce((acc, guess, i) => {
+    return quiz(acc, {
+      type: types.MAKE_GUESS,
+      qid: i,
+      guess
+    });
+  }, prevState.quiz);
+
+  expect(score(secondRoundNextState)).toBe(2);
+});
+
+it('the score should be -1 if the quiz isn\'t finished yet', () => {
+  const prevState = { quiz: quizData };
+  const guesses = ['a', 'c'];
+  const nextState = guesses.reduce((acc, guess, i) => {
+    return quiz(acc, {
+      type: types.MAKE_GUESS,
+      qid: i,
+      guess
+    });
+  }, prevState.quiz);
+
+  expect(score(nextState)).toBe(-1);
 });

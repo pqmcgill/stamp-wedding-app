@@ -33,3 +33,16 @@ export const visibleQuestions = createSelector(
     }
   }
 );
+
+export const score = createSelector(
+  quiz => quiz,
+  quiz => {
+    if (hasCompletedQuiz(quiz)) {
+      return quiz.questions.reduce((acc, q) => {
+        return q.completed && q.guess === q.answer ? acc + 1 : acc;
+      }, 0);
+    } else {
+      return -1;
+    }
+  }
+);
