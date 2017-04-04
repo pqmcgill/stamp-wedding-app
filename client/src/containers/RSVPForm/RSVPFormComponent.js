@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Field, formValueSelector } from 'redux-form';
 import { Row, Col } from 'react-flexbox-grid-aphrodite';
@@ -14,6 +15,7 @@ const Form = ({ handleSubmit, user, guestRSVP, plusOneRSVP, dirty, error, ...pro
   const hasPlusOneRSVPd = plusOneRSVP === 'YES';
   let buttonClassName;
 
+  const capitalize = (val) => val.charAt(0).toUpperCase() + val.substring(1, val.length);
   buttonClassName = (dirty && !error) ?
     css(styles.submitBtn) :
     css(styles.submitBtn, styles.disabled);
@@ -22,12 +24,12 @@ const Form = ({ handleSubmit, user, guestRSVP, plusOneRSVP, dirty, error, ...pro
     <form onSubmit={ handleSubmit } className=" quicksandRegular">
       <Row center="xs,sm,md,lg">
 
-        <Col xs={11} sm={5} md={5} lg={5}>
+      <Col xsOffset={0} smOffset={0} mdOffset={1} lgOffset={1} xs={11} sm={5} md={4} lg={4}>
 
           <div className={ css(styles.formSection) }>
             <Row start="xs,sm,md,lg">
               <Col xs={12} className={ css(styles.formHeader) + ' princessSofia'}>
-                { user.guestName }
+                { capitalize(user.guestName) }
               </Col>
             </Row>
             <Row start="xs,sm,md,lg">
@@ -69,11 +71,11 @@ const Form = ({ handleSubmit, user, guestRSVP, plusOneRSVP, dirty, error, ...pro
         </Col>
 
 
-        <Col xs={11} sm={5} md={5} lg={5}>
+        <Col xs={11} sm={5} md={4} lg={4}>
           <div className={ css(styles.formSection) }>
             <Row>
               <Col xs={12} className={ css(styles.formHeader) + ' princessSofia'}>
-                { (user.plusOneName && user.plusOneName.length > 0) ? user.plusOneName : 'Plus One' }
+                { (user.plusOneName && user.plusOneName.length > 0) ? capitalize(user.plusOneName) : 'Plus One' }
               </Col>
             </Row>
             <Row start="xs,sm,md,lg">
@@ -122,10 +124,10 @@ const Form = ({ handleSubmit, user, guestRSVP, plusOneRSVP, dirty, error, ...pro
           <Col xs={12} className={ css(styles.formHeaderCenter) + ' princessSofia'}>
             General Questions
           </Col>
-          <Col xs={11} sm={8} md={8} lg={8}>
+          <Col xs={11} sm={10} md={7} lg={7}>
             <Row start="xs,sm,md,lg">
               <Col xs={12}>
-                <p className={ css(styles.radioQuestion) }>Will you be staying on the property overnight after the wedding? (See Important Info page for more details.)</p>
+                <p className={ css(styles.radioQuestion) }>Will you be staying on the property overnight after the wedding? (See <Link to='/faq'>FAQ page</Link> for more details.)</p>
                 <Field name="overnightSelection" component={ RadioButtonGroup }>
                   <RadioButton value="YES" label="Yes, and I know I need to bring my own tent to stay in." checkedIcon={<ActionFavorite />} uncheckedIcon={<ActionFavoriteBorder />}/>
                   <RadioButton value="NO" label="No, I am leaving after the reception and staying elsewhere." checkedIcon={<ActionFavorite />} uncheckedIcon={<ActionFavoriteBorder />}/>
@@ -134,7 +136,7 @@ const Form = ({ handleSubmit, user, guestRSVP, plusOneRSVP, dirty, error, ...pro
             </Row>
           </Col>
 
-          <Col xs={11} sm={8} md={8} lg={8}>
+          <Col xs={11} sm={10} md={7} lg={7}>
             <Row start="xs,sm,md,lg">
               <Col xs={12}>
                 <p className={ css(styles.radioQuestion) }>What flavors of ice cream do you like?</p>
@@ -147,7 +149,7 @@ const Form = ({ handleSubmit, user, guestRSVP, plusOneRSVP, dirty, error, ...pro
             </Row>
           </Col>
 
-          <Col xs={11} sm={8} md={8} lg={8}>
+          <Col xs={11} sm={10} md={7} lg={7}>
             <Row start="xs,sm,md,lg">
               <Col xs={12}>
                 <p className={ css(styles.radioQuestion) }>What is one song that you love dancing to?</p>

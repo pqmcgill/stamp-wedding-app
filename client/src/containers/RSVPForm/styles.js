@@ -20,7 +20,7 @@ export default StyleSheet.create({
 
   formSection: {
     marginBottom: '1em',
-    textAlign: 'center'
+    textAlign: 'left'
   },
 
   formHeaderCenter: {
