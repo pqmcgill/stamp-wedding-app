@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import AdminOnly from '../../hocs/AdminOnly';
 import Authenticated from '../../hocs/Authenticated';
@@ -84,13 +85,25 @@ const style = StyleSheet.create({
 const AuthRSVPForm = Authenticated(RSVPForm);
 const AdminGuestManagement = AdminOnly(GuestManagement);
 
-export default class App extends Component {
+class App extends Component {
 	constructor (props) {
 		super(props);
 		this.handleScroll = this.handleScroll.bind(this);
 		this.state = {
 		 isSticky: false
 		};
+	}
+	
+	componentWillReceiveProps(nextProps) {
+		const { location, history: { action }} = nextProps;
+		if (location !== this.props.location) {
+			window.scrollTo(0, 0);
+
+			// override browser history scroll restoration when using back button
+			if ('scrollRestoration' in history) {
+				history.scrollRestoration = 'manual';
+			}
+		}
 	}
 
 	componentDidMount() {
@@ -152,3 +165,5 @@ export default class App extends Component {
 		);
 	}
 }
+
+export default withRouter(App);
