@@ -74,6 +74,34 @@ export const FAQ = props => (
         </p>
         <br />
 
+				<h2>I'm sleeping in a test and am planning on exploring all day. Where can I get ready?</h2>
+				<p>
+					The wedding grounds will have mirrors and empty outlets available to you. There will also be a table of dry shampoo, hairspray and freshening up towelettes.
+					You will have access to a shower before heading home the next day.
+				</p>
+				<br />
+
+				<h2>Things to do?</h2>
+				<h3>Columbus</h3>
+				<ul>
+					<li>Columbus is known worldwide for it's architecture.</li>
+					<li>Zaharakos Ice Cream Parlor has been in business since 1900.</li>
+					<li>Downtown Columbus is growing with restaurants, bars and shops.</li>
+					<li>Mill Race Park is Sam's favorite childhood park.</li>
+				</ul>
+				<h3>Brown County</h3>
+				<ul>
+					<li>25 minute drive from Columbus (35 minutes from the wedding location).</li>
+					<li>Brown County State Park is great for hiking. $7 in state/$9 out of state. Bring cash.</li>
+					<li>Nashville, IN is rustic, darling and has many boutique shops/restaurants.</li>
+				</ul>
+				<h3>Edinburgh</h3>
+				<ul>
+					<li>Edinburgh is 14 min from Columbus</li>
+					<li>It has an expansive premium outlet mall.</li>
+				</ul>
+				<br />
+
 				<h2>And last but not least...</h2>
 				<p>
           We've made a <a href="https://www.facebook.com/groups/412219222486294/" target="_blank">Facebook group!</a> It's for guest-to-guest communication. You can post

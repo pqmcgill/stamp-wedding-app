@@ -44,7 +44,8 @@ export default props => (
 							<p>
 								12770 S Jonesville Rd<br />
 								Columbus, IN 47201<br />
-								*Jonesville Rd is also IN-11*
+								*Jonesville Rd is also IN-11*<br />
+								(Thank you, Mindy and Troy!)
 							</p>
 						</Col>
             {/*<Col xs={6}

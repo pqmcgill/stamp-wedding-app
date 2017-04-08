@@ -71,7 +71,7 @@ class QuizQuestion extends React.Component {
 										className={ css(style.radio) }
                     value={ choice.key }
                     label={ choice.value }
-										disabled={ this.props.guess }
+										disabled={ this.props.guess !== undefined }
                   />
                 })
               }

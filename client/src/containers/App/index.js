@@ -95,7 +95,7 @@ class App extends Component {
 	}
 	
 	componentWillReceiveProps(nextProps) {
-		const { location, history: { action }} = nextProps;
+		const { location, history } = nextProps;
 		if (location !== this.props.location) {
 			window.scrollTo(0, 0);
 

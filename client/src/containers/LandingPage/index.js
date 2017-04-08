@@ -91,7 +91,9 @@ const mapDispatchToProps = dispatch => {
 	return {
 		startQuiz() {
 			dispatch(startQuiz());
-			smoothscroll(document.getElementById('question-0'));
+			setTimeout(() => {
+				smoothscroll(document.getElementById('question-0'));
+			}, 100);
 		}
 	};
 };
