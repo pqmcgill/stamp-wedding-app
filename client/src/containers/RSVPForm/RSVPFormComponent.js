@@ -60,7 +60,8 @@ const Form = ({ handleSubmit, user, guestRSVP, plusOneRSVP, dirty, error, ...pro
                   <p className={ css(styles.radioQuestion) }>I dance better when I drink...</p>
                   <Field name="guestBeverageSelection" component={ RadioButtonGroup }>
                     <RadioButton value="BEER" label="Beer" checkedIcon={<ActionFavorite />} uncheckedIcon={<ActionFavoriteBorder />}/>
-                    <RadioButton value="WINE" label="Wine" checkedIcon={<ActionFavorite />} uncheckedIcon={<ActionFavoriteBorder />}/>
+                    <RadioButton value="WINE_SWEET" label="Wine (Sweet)" checkedIcon={<ActionFavorite />} uncheckedIcon={<ActionFavoriteBorder />}/>
+										<RadioButton value="WINE_DRY" label="Wine (Dry)" checkedIcon={<ActionFavorite />} uncheckedIcon={<ActionFavoriteBorder />}/>
                     <RadioButton value="NONALC" label="Non alcoholic beverages" checkedIcon={<ActionFavorite />} uncheckedIcon={<ActionFavoriteBorder />}/>
                   </Field>
                 </Col>
@@ -107,7 +108,8 @@ const Form = ({ handleSubmit, user, guestRSVP, plusOneRSVP, dirty, error, ...pro
                   <p className={ css(styles.radioQuestion) }>I dance better when I drink...</p>
                   <Field name="plusOneBeverageSelection" component={ RadioButtonGroup }>
                     <RadioButton value="BEER" label="Beer" checkedIcon={<ActionFavorite />} uncheckedIcon={<ActionFavoriteBorder />}/>
-                    <RadioButton value="WINE" label="Wine" checkedIcon={<ActionFavorite />} uncheckedIcon={<ActionFavoriteBorder />}/>
+                    <RadioButton value="WINE_SWEET" label="Wine (Sweet)" checkedIcon={<ActionFavorite />} uncheckedIcon={<ActionFavoriteBorder />}/>
+										<RadioButton value="WINE_DRY" label="Wine (Dry)" checkedIcon={<ActionFavorite />} uncheckedIcon={<ActionFavoriteBorder />}/>
                     <RadioButton value="NONALC" label="Non alcoholic beverages" checkedIcon={<ActionFavorite />} uncheckedIcon={<ActionFavoriteBorder />}/>
                   </Field>
                 </Col>

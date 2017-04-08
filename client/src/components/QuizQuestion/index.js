@@ -55,6 +55,10 @@ class QuizQuestion extends React.Component {
 				className={ css(style.question) }
       >
         <Card expanded={this.props.completed} onExpandChange={this.handleScrollTo}>
+					<CardTitle
+						className='princessSofia'
+						title={ `Question ${this.props.qid + 1} of 6`}
+					/>
           <CardTitle
             title={ this.props.question }
           />
