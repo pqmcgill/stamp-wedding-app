@@ -40,9 +40,6 @@ const UserSchema = new Schema({
 		type: String
 	},
 	iceCreamSelections: {},
-	song: {
-		type: String
-	},
 	password: {
 		type: String,
 		required: true

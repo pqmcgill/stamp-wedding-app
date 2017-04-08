@@ -72,7 +72,7 @@ export class App extends Component {
 					<div className={ css(styles.quizWrapper) } onClick={ this.props.startQuiz }>
 						<Grid fluid className={ css(styles.quizLink) + ' quicksandMedium' }>
 							<Row center="xs">
-								<Col xs={12}>
+								<Col id="startQuiz" xs={12}>
 									Think you know Sam and Pat? Take the quiz to find out!
 								</Col>
 							</Row>
@@ -92,7 +92,7 @@ const mapDispatchToProps = dispatch => {
 		startQuiz() {
 			dispatch(startQuiz());
 			setTimeout(() => {
-				smoothscroll(document.getElementById('question-0'));
+				smoothscroll(document.getElementById('startQuiz'));
 			}, 100);
 		}
 	};

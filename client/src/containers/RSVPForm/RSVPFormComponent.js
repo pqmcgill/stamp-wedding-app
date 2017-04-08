@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Field, formValueSelector } from 'redux-form';
 import { Row, Col } from 'react-flexbox-grid-aphrodite';
@@ -127,7 +126,7 @@ const Form = ({ handleSubmit, user, guestRSVP, plusOneRSVP, dirty, error, ...pro
           <Col xs={11} sm={10} md={7} lg={7}>
             <Row start="xs,sm,md,lg">
               <Col xs={12}>
-                <p className={ css(styles.radioQuestion) }>Will you be staying on the property overnight after the wedding? (See <Link to='/faq'>FAQ page</Link> for more details.)</p>
+                <p className={ css(styles.radioQuestion) }>Will you be staying on the property overnight after the wedding? (See our FAQ page for more details.)</p>
                 <Field name="overnightSelection" component={ RadioButtonGroup }>
                   <RadioButton value="YES" label="Yes, and I know I need to bring my own tent to stay in." checkedIcon={<ActionFavorite />} uncheckedIcon={<ActionFavoriteBorder />}/>
                   <RadioButton value="NO" label="No, I am leaving after the reception and staying elsewhere." checkedIcon={<ActionFavorite />} uncheckedIcon={<ActionFavoriteBorder />}/>
@@ -149,18 +148,6 @@ const Form = ({ handleSubmit, user, guestRSVP, plusOneRSVP, dirty, error, ...pro
             </Row>
           </Col>
 
-          <Col xs={11} sm={10} md={7} lg={7}>
-            <Row start="xs,sm,md,lg">
-              <Col xs={12}>
-                <p className={ css(styles.radioQuestion) }>What is one song that you love dancing to?</p>
-                <Field className={ css(styles.input) }
-                  name="song"
-                  component="input"
-                  placeholder="ex: The Chicken Dance"
-                />
-              </Col>
-            </Row>
-          </Col>
         </Row>
       :''}
 

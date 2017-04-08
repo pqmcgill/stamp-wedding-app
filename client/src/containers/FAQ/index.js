@@ -24,7 +24,7 @@ export const FAQ = props => (
 					we hope you do too.<br /><br /><br />
 				</p>
     
-				<h2>Where will you stay?</h2>
+				<h2>Where will I stay?</h2>
 				<p>
 					We suggest you bring camping equipment and sleep on the property. We will be!
 					SERIOUSLY, bring a tent. You can get drunk as a skunk and not need to go any
@@ -63,8 +63,8 @@ export const FAQ = props => (
         </p>
         <br />
 
-        <h2>Where is the reception</h2>
-        <p>The reception will take place on the property at the same location as the wedding</p>
+        <h2>Where is the reception?</h2>
+        <p>The reception will take place on the property at the same location as the wedding.</p>
         <br />
 
         <h2>When can I setup my tent?</h2>
@@ -75,7 +75,7 @@ export const FAQ = props => (
         </p>
         <br />
 
-				<h2>I'm sleeping in a test and am planning on exploring all day. Where can I get ready?</h2>
+				<h2>I'm sleeping in a tent and am planning on exploring all day. Where can I get ready?</h2>
 				<p>
 					The wedding grounds will have mirrors and empty outlets available to you. There will also be a table of dry shampoo, hairspray and freshening up towelettes.
 					You will have access to a shower before heading home the next day.
@@ -105,7 +105,7 @@ export const FAQ = props => (
 
 				<h2>And last but not least...</h2>
 				<p>
-          We've made a <a href="https://www.facebook.com/groups/412219222486294/" target="_blank">Facebook group!</a> It's for guest-to-guest communication. You can post
+          Please join our <a href="https://www.facebook.com/groups/412219222486294/" target="_blank">Facebook group!</a> It's for guest-to-guest communication. You can post
 					things like "Does anyone need a ride from the airport?" or "Does anyone have a tent I can borrow?"
 					or "I'm not sleeping on the property. Will there be any sober drivers to catch a ride with?"
 					Check it out!

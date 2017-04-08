@@ -41,6 +41,8 @@ export const question = (state = {}, action) => {
 
 export default (state = quizData, action) => {
 	switch(action.type) {
+		case types.LOGOUT:
+			return quizData;
 		case types.QUIZ_START:
 			return {
 			...state,
