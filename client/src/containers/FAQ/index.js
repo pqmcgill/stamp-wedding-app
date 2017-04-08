@@ -38,6 +38,7 @@ export const FAQ = props => (
 						<li>Indy Bound: Book a hotel on SR 46 in Columbus. It's right off the interstate.</li>
 						<li>Louisville Bound: Book a hotel in Seymour. It's right off the interstate... Columbus has more to offer</li>
 					</ul>
+					<p><a href='https://grouptravelorg.hotelplanner.com/EventPage3443976'>Here</a> are some available hotel options.</p>
           <br />
         </div>
 

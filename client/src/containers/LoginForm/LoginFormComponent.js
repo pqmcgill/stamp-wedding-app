@@ -41,6 +41,7 @@ const Form = ({ handleSubmit, reset, error }) => {
 									type="text"
 									placeholder="see your invitation..."
 									autoCapitalize="none"
+									autoFocus={true}
 								/>
 							</Col>
 						</Row>
