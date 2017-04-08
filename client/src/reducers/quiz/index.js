@@ -40,19 +40,24 @@ export const question = (state = {}, action) => {
 };
 
 export default (state = quizData, action) => {
-    switch(action.type) {
-        case types.QUIZ_START:
-            return {
-                ...state,
-                questions: state.questions.map(q => question(q, action)),
-                hasStarted: true
-            };
-        case types.MAKE_GUESS:
-            return {
-                ...state,
-                questions: state.questions.map(q => question(q, action))
-            };
-        default:
-            return state;
-    }
+	switch(action.type) {
+		case types.QUIZ_START:
+			return {
+			...state,
+			questions: state.questions.map(q => question(q, action)),
+				hasStarted: true
+		};
+		case types.MAKE_GUESS:
+			return {
+			...state,
+			questions: state.questions.map(q => question(q, action))
+		};
+		case types.RETAKE_QUIZ:
+			return {
+			...quizData,
+			hasStarted: true
+		};
+		default:
+			return state;
+	}
 };

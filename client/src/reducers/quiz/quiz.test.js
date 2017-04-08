@@ -278,3 +278,21 @@ it('the score should be -1 if the quiz isn\'t finished yet', () => {
 
   expect(score(nextState)).toBe(-1);
 });
+
+it('should reset the quiz upon a RETAKE_QUIZ action', () => {
+	const prevState = quizData;
+	const guesses = ['a', 'c', 'd'];
+	const completedState = guesses.reduce((acc, guess, i) => {
+		return quiz(acc, {
+			type: types.MAKE_GUESS,
+			qid: i,
+			guess
+		});
+	}, prevState);
+
+	const resetState = quiz(completedState, {
+		type: types.RETAKE_QUIZ
+	});
+
+	expect(resetState).toEqual({ ...quizData, hasStarted: true });
+});

@@ -29,9 +29,7 @@ class QuizQuestion extends React.Component {
 
   handleScrollTo() {
     setTimeout(() => {
-      console.log('checking...');
       const nextQuestion = document.getElementById(`target-question-${this.props.qid}`);
-      console.log(nextQuestion);
       if (nextQuestion) {
           smoothscroll(nextQuestion);
       }
@@ -73,7 +71,7 @@ class QuizQuestion extends React.Component {
 										className={ css(style.radio) }
                     value={ choice.key }
                     label={ choice.value }
-                    disabled={ this.props.guess }
+										disabled={ this.props.guess }
                   />
                 })
               }

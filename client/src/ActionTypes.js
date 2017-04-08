@@ -28,3 +28,4 @@ export const LOADING_GUEST_CHANGES = 'LOADING_GUEST_CHANGES';
 // Quiz
 export const QUIZ_START = 'QUIZ_START';
 export const MAKE_GUESS = 'MAKE_GUESS';
+export const RETAKE_QUIZ = 'RETAKE_QUIZ';

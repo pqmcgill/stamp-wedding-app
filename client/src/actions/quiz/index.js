@@ -10,3 +10,7 @@ export const makeGuess = (qid, guess) => ({
 export const startQuiz = () => ({
     type: types.QUIZ_START
 });
+
+export const retakeQuiz = () => ({
+	type: types.RETAKE_QUIZ
+});
