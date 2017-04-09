@@ -57,5 +57,14 @@ export default StyleSheet.create({
   incorrect: {
     fontSize: fonts.smallerer,
     color: colors.red
-  }
+	},
+
+	link: {
+		textDecoration: 'underline',
+		cursor: 'pointer',
+		':hover': {
+			color: colors.aquaMarine
+		}
+
+	}
 });

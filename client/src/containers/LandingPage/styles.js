@@ -52,10 +52,14 @@ const styles = StyleSheet.create({
 	},
 
 	quizLink: {
+		cursor: 'pointer',
 		fontSize: fonts.small,
 		backgroundColor: colors.lightPink,
 		paddingTop: '1em',
-		paddingBottom: '1em'
+		paddingBottom: '1em',
+		':hover': {
+			textDecoration: 'underline'
+		}
 	},
 
 	rsvp: {

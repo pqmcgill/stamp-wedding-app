@@ -8,12 +8,13 @@ import { css } from 'aphrodite';
 import style from './style';
 import smoothscroll from 'smoothscroll';
 
-const QuizComponent = ({ questions, makeGuess, score }) => {
+const QuizComponent = ({ readMore, questions, makeGuess, score }) => {
   const renderQuestions = questions.map(q =>
     <QuizQuestion
       key={q.qid}
       { ...q }
       makeGuess={ makeGuess }
+			readMore={ readMore }
     />
   );
   return (
@@ -24,7 +25,16 @@ const QuizComponent = ({ questions, makeGuess, score }) => {
   );
 };
 
-const Quiz = ({ hasCompletedQuiz, hasStarted, hasSubmittedResponse, questions, score, makeGuess, retakeQuiz }) => {
+const Quiz = ({ 
+	hasCompletedQuiz, 
+	hasStarted, 
+	hasSubmittedResponse, 
+	questions, 
+	score, 
+	makeGuess, 
+	retakeQuiz, 
+	readMore
+}) => {
 	const retake = () => {
 		smoothscroll(document.getElementById('quizTop'));
 		setTimeout(retakeQuiz, 500);
@@ -33,7 +43,12 @@ const Quiz = ({ hasCompletedQuiz, hasStarted, hasSubmittedResponse, questions, s
 	return hasStarted ? (
 		<Grid id='quizTop' className={ css(style.quiz) }>
 			<Row center='xs,sm,md,lg'>
-				<QuizComponent questions={questions} makeGuess={makeGuess} score={score}/>
+				<QuizComponent 
+					readMore={readMore} 
+					questions={questions}
+					makeGuess={makeGuess}
+					score={score}
+				/>
 			</Row>
 
 			{ hasCompletedQuiz ?

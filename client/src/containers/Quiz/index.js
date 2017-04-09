@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { makeGuess, retakeQuiz } from '../../actions/quiz';
+import { makeGuess, retakeQuiz, readMore } from '../../actions/quiz';
 import { 
 	hasCompletedQuiz,
 	visibleQuestions,
@@ -23,6 +23,10 @@ const mapDispatchToProps = dispatch => {
 
 		retakeQuiz() {
 			dispatch(retakeQuiz());
+		},
+
+		readMore(qid) {
+			dispatch(readMore(qid));
 		}
 	};
 };

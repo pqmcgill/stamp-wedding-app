@@ -31,7 +31,12 @@ export const question = (state = {}, action) => {
       correct,
       guess
     };
-  } else {
+	} else if (types.READ_MORE && qid === state.qid) {
+		return {
+			...state,
+			readingMore: true
+		};
+	} else {
     return {
       ...state,
       choices: state.choices.map(c => choice(c, action))
@@ -50,6 +55,7 @@ export default (state = quizData, action) => {
 				hasStarted: true
 		};
 		case types.MAKE_GUESS:
+		case types.READ_MORE:
 			return {
 			...state,
 			questions: state.questions.map(q => question(q, action))

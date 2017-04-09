@@ -63,6 +63,7 @@ export default StyleSheet.create({
     color: '#FFF',
     borderRadius: '4px',
     marginTop: '2em',
+		cursor: 'pointer',
 
     ':focus': {
       backgroundColor: colors.aquaMarine
@@ -75,6 +76,14 @@ export default StyleSheet.create({
 
   disabled: {
     pointerEvents: 'none',
-    opacity: 0.7
-  }
+    opacity: 0.5
+	},
+
+	buttonWrapper: {
+	
+	},
+
+	buttonWrapperDisabled: {
+		cursor: 'not-allowed'
+	}
 });

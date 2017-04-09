@@ -12,12 +12,16 @@ import { RadioButtonGroup, Checkbox } from 'redux-form-material-ui';
 const Form = ({ handleSubmit, user, guestRSVP, plusOneRSVP, dirty, error, ...props }) => {
   const hasGuestRSVPd = guestRSVP === 'YES';
   const hasPlusOneRSVPd = plusOneRSVP === 'YES';
-  let buttonClassName;
+  let buttonClassName, buttonWrapperClassName;
 
   const capitalize = (val) => val.charAt(0).toUpperCase() + val.substring(1, val.length);
   buttonClassName = (dirty && !error) ?
     css(styles.submitBtn) :
     css(styles.submitBtn, styles.disabled);
+
+	buttonWrapperClassName = (dirty && !error) ?
+		css(styles.buttonWrapper) :
+		css(styles.buttonWrapperDisabled);
     
     return (
     <form onSubmit={ handleSubmit } className=" quicksandRegular">
@@ -154,7 +158,7 @@ const Form = ({ handleSubmit, user, guestRSVP, plusOneRSVP, dirty, error, ...pro
       :''}
 
       <Row center="xs,sm,md,lg">
-        <button className={ buttonClassName } label="Save changes" type="submit">SUBMIT RESPONSE</button>
+				<span className={ buttonWrapperClassName }><button className={ buttonClassName } label="Save changes" type="submit">SUBMIT RESPONSE</button></span>
       </Row>
     </form>
   );

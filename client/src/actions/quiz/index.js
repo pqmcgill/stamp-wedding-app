@@ -6,6 +6,10 @@ export const makeGuess = (qid, guess) => ({
     guess
 });
 
+export const readMore = (qid) => ({
+	type: types.READ_MORE,
+	qid
+});
 
 export const startQuiz = () => ({
     type: types.QUIZ_START

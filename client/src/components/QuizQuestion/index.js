@@ -12,6 +12,10 @@ class QuizQuestion extends React.Component {
     super(props);
     this.handleExpandChange = this.handleExpandChange.bind(this);
     this.handleScrollTo = this.handleScrollTo.bind(this);
+		this.expandText = this.expandText.bind(this);
+		this.state = {
+			textExpanded: false
+		};
   }
 
   componentDidUpdate(oldProps) {
@@ -35,6 +39,14 @@ class QuizQuestion extends React.Component {
       }
     }, 0);
   }
+
+	truncate(text) {
+		return text.substring(0, 250) + '...';
+	}
+
+	expandText() {
+		this.props.readMore(this.props.qid);
+	}
 
   render() {
     return (
@@ -101,7 +113,15 @@ class QuizQuestion extends React.Component {
 					<CardText expandable={true}
 						className={ css(style.blurb) }
 					>
-            { this.props.rewardBlurb }
+					{ !this.props.readingMore ? 
+					<div>
+						{this.truncate(this.props.rewardBlurb) + ' '} 
+						<a className={ css(style.link) } onClick={ this.expandText }>Read more</a>
+					</div> :
+					<div>
+						{ this.props.rewardBlurb }
+					</div>
+					}
           </CardText>
 
         </Card>
