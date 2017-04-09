@@ -1,12 +1,12 @@
 {
   "main.css": "static/css/main.addc77f9.css",
   "main.css.map": "static/css/main.addc77f9.css.map",
-  "main.js": "static/js/main.cc206762.js",
-  "main.js.map": "static/js/main.cc206762.js.map",
+  "main.js": "static/js/main.fc720147.js",
+  "main.js.map": "static/js/main.fc720147.js.map",
   "static/js/1.48d43db0.chunk.js": "static/js/1.48d43db0.chunk.js",
   "static/js/1.48d43db0.chunk.js.map": "static/js/1.48d43db0.chunk.js.map",
-  "static/js/2.0d16c8b9.chunk.js": "static/js/2.0d16c8b9.chunk.js",
-  "static/js/2.0d16c8b9.chunk.js.map": "static/js/2.0d16c8b9.chunk.js.map",
+  "static/js/2.4f0c0296.chunk.js": "static/js/2.4f0c0296.chunk.js",
+  "static/js/2.4f0c0296.chunk.js.map": "static/js/2.4f0c0296.chunk.js.map",
   "static/js/3.21f41a74.chunk.js": "static/js/3.21f41a74.chunk.js",
   "static/js/3.21f41a74.chunk.js.map": "static/js/3.21f41a74.chunk.js.map",
   "static/js/4.1b40a3a3.chunk.js": "static/js/4.1b40a3a3.chunk.js",
@@ -36,8 +36,8 @@
   "static/media/kiss.webp": "static/media/kiss.59adebd1.webp",
   "static/media/mackinac.jpg": "static/media/mackinac.576e471e.jpg",
   "static/media/mackinac.webp": "static/media/mackinac.9486f306.webp",
-  "static/media/marriage.jpg": "static/media/marriage.8aa23842.jpg",
-  "static/media/marriage.webp": "static/media/marriage.9a5ff7ea.webp",
+  "static/media/marriage.jpg": "static/media/marriage.1b141282.jpg",
+  "static/media/marriage.webp": "static/media/marriage.59e582e7.webp",
   "static/media/stamp.jpg": "static/media/stamp.6bc559a1.jpg",
   "static/media/stamp.webp": "static/media/stamp.8588dba0.webp"
 }
