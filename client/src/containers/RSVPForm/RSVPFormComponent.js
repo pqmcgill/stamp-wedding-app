@@ -25,7 +25,7 @@ const Form = ({ handleSubmit, user, guestRSVP, plusOneRSVP, dirty, error, ...pro
     
     return (
     <form onSubmit={ handleSubmit } className=" quicksandRegular">
-      <Row center="xs,sm,md,lg">
+      <Row center="xs,sm,md,lg" className={ css(styles.guestRow) }>
 
       <Col xsOffset={0} smOffset={0} mdOffset={1} lgOffset={1} xs={11} sm={5} md={4} lg={4}>
 
@@ -144,7 +144,7 @@ const Form = ({ handleSubmit, user, guestRSVP, plusOneRSVP, dirty, error, ...pro
           <Col xs={11} sm={10} md={7} lg={7}>
             <Row start="xs,sm,md,lg">
               <Col xs={12}>
-                <p className={ css(styles.radioQuestion) }>What flavors of ice cream do you like?</p>
+                <p className={ css(styles.radioQuestion) }>What flavors of ice cream do you like? (Check all that apply)</p>
                 <Field name="iceCreamSelections.STRAWBERRY" label="strawberry" component={ Checkbox } />
                 <Field name="iceCreamSelections.MINTCHOCCHIP" label="mint chocolate chip" component={ Checkbox } />
                 <Field name="iceCreamSelections.COOKIES" label="cookies 'n cream" component={ Checkbox } />
@@ -157,8 +157,9 @@ const Form = ({ handleSubmit, user, guestRSVP, plusOneRSVP, dirty, error, ...pro
         </Row>
       :''}
 
-      <Row center="xs,sm,md,lg">
-				<span className={ buttonWrapperClassName }><button className={ buttonClassName } label="Save changes" type="submit">SUBMIT RESPONSE</button></span>
+      <Row center="xs,sm,md,lg" className={ css( styles.submitContainer) }>
+				{ dirty && error ? '*some required fields needed' : '' }
+				<div className={ buttonWrapperClassName }><button className={ buttonClassName } label="Save changes" type="submit">SUBMIT RESPONSE</button></div>
       </Row>
     </form>
   );

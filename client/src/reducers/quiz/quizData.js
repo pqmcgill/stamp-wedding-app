@@ -15,11 +15,11 @@ export default {
 						imgName: 'friends',
 						readingMore: false,
             correctMsg: 'You got it!',
-						incorrectMsg: 'Well, crap on a stick! The correct answer is Bloomington, IN 9-10-2011'
+						incorrectMsg: 'Well, crap on a stick! The correct answer is Bloomington, IN 9-10-2011.'
         },
         {
             qid: 1,
-            question: 'True or False - Pat and Sam were both extremely nervous for their first kiss',
+            question: 'True or False - Pat and Sam were both extremely nervous for their first kiss.',
             choices: [
                 { key: 'a', value: 'True', guessed: false },
                 { key: 'b', value: 'False', guessed: false }

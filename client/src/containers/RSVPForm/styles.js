@@ -62,7 +62,6 @@ export default StyleSheet.create({
     backgroundColor: colors.blue,
     color: '#FFF',
     borderRadius: '4px',
-    marginTop: '2em',
 		cursor: 'pointer',
 
     ':focus': {
@@ -85,5 +84,14 @@ export default StyleSheet.create({
 
 	buttonWrapperDisabled: {
 		cursor: 'not-allowed'
+	},
+
+	guestRow: {
+		alignItems: 'flex-start'
+	},
+
+	submitContainer: {
+    marginTop: '2em',
+		flexDirection: 'column'
 	}
 });
