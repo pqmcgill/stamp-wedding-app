@@ -92,8 +92,8 @@ export default {
 						rewardBlurb: 'Sam needed insurance. She asked Pat if he would elope with her and he agreed to be her happily insured husband. They eloped 4 days later on July 18, 2016. Sam wore a dress that she purchased 3 years prior. She wasn\'t sure how they would get married, but she knew they would and she wanted to be prepared.',
 						completed: false,
 						readingMore: false,
-            correctMsg: 'Nothing says "love" more than offering of share some decent health benefits.',
-						incorrectMsg: 'Nope! Never underestimate the power to decent health benefits.'
+            correctMsg: 'Nothing says "love" more than offering to share some decent health benefits.',
+						incorrectMsg: 'Nope! Never underestimate the power of decent health benefits.'
         }
     ],
 
