@@ -121,7 +121,7 @@ const Contact = ({ hasSubmittedResponse }) => {
   const handleSubmit = ({ name, subject, message }) => {
     const formattedMessage = message.replace('\n', '%0D%0A');
     window.open(
-      `mailto:stamp1413@gmai.com?subject=STAMP: ${subject}&body=${formattedMessage}%0D%0A%0D%0ALove, ${name}`, '_self'
+      `mailto:stamp1413@gmail.com?subject=STAMP: ${subject}&body=${formattedMessage}%0D%0A%0D%0ALove, ${name}`, '_self'
     );
   };
 
