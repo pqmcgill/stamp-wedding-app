@@ -56,7 +56,7 @@ loadStrategy(passport);
 app.use(compression());
 
 // serve static files under build folder
-app.use(express.static(__dirname + '/build', { maxage: 86400000 /* one day */ }));
+app.use(express.static(__dirname + '/build', { maxage: 0 /* one day */ }));
 
 // handle api calls
 app.use('/api', api());
