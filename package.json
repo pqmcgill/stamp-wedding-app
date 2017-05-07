@@ -11,7 +11,7 @@
     "client_dev": "(ttab -a iTerm2 -w 'cd ./client; yarn start;')",
     "dev": "yarn server_dev && yarn client_dev && yarn test_watch",
     "build": "rm -rf ./server/build && cd ./client && yarn build && cp -R ./build ../server/build/",
-		"deploy": "git subtree push --prefix server heroku master"
+    "deploy": "git subtree push --prefix server heroku master"
   },
   "author": "Patrick McGill",
   "license": "MIT",
