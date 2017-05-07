@@ -19,8 +19,13 @@
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', function() {
         navigator.serviceWorker.register('service-worker.js')
-          .then(() => {
+          .then((reg) => {
             // console.log('server worker registered');
+            reg.unregister().then(bool => {
+              if (bool === true) {
+                console.log('unregistered');
+              }
+            })
           })
           .catch(function(ex) {
             console.warn(ex);
