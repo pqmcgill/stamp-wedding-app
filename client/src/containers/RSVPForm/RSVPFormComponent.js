@@ -14,7 +14,11 @@ const Form = ({ handleSubmit, user, guestRSVP, plusOneRSVP, dirty, error, ...pro
   const hasPlusOneRSVPd = plusOneRSVP === 'YES';
   let buttonClassName, buttonWrapperClassName;
 
-  const capitalize = (val) => val.charAt(0).toUpperCase() + val.substring(1, val.length);
+	const capitalize = (val) => {
+		if (!val) return;
+		return val.charAt(0).toUpperCase() + val.substring(1, val.length);
+	};
+
   buttonClassName = (dirty && !error) ?
     css(styles.submitBtn) :
     css(styles.submitBtn, styles.disabled);

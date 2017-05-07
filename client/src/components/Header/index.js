@@ -21,6 +21,7 @@ export const Header = (props) => {
   const Logout = () => <a className={ css(style.logout) } onClick={ handleLogout }>Logout</a>;
   const RSVP = () => <RSVPButton
     hasSubmittedResponse={ props.hasSubmittedResponse }
+		admin={ props.access === 'admin' }
   />;
 
   const ShowButton = () => {
@@ -86,7 +87,8 @@ export const Header = (props) => {
 };
 
 const mapStateToProps = ({ user }) => ({
-	hasSubmittedResponse: user.hasSubmittedResponse
+	hasSubmittedResponse: user.hasSubmittedResponse,
+	access: user.access
 });
 
 const mapDispatchToProps = {

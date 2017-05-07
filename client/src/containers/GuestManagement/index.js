@@ -1,8 +1,14 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { loadGuests, deleteGuest, addGuest } from '../../actions/admin';
-import { getGuests } from '../../reducers/admin/guests/selectors'
+import { Grid, Col, Row } from 'react-flexbox-grid-aphrodite';
+import { 
+	getGuests, 
+	getDinnerSelectionData, 
+	getBeverageSelectionData 
+} from '../../reducers/admin/guests/selectors'
 import AddGuestForm from './addGuestForm';
+import MyPieChart from '../../components/MyPieChart';
 
 // material elements
 import { Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn } from 'material-ui/Table';
@@ -51,6 +57,7 @@ export class GuestManagement extends Component {
         );
     });
     return (
+			<div>
       <Paper className="guestManagement" zDepth={1}>
         <h2>Here you can manage your guest list</h2>
 				<AddGuestForm />
@@ -70,8 +77,30 @@ export class GuestManagement extends Component {
           <TableBody className="listBody" displayRowCheckbox={false}>
             { guestList }
           </TableBody>
-        </Table>
-      </Paper>
+				</Table>
+			</Paper>
+			<Grid>
+				<Row>
+					<Col xs={12} sm={6} md={6} lg={6}>
+						<Paper className='guestManagement' zDepth={1}>
+							<MyPieChart 
+								name="Beverage Selections"
+								data={ this.props.beverageData }
+							/>
+						</Paper>
+					</Col>
+					<Col xs={12} sm={6} md={6} lg={6}>
+						<Paper className='guestManagement' zDepth={1}>
+							<MyPieChart 
+								name="Dinner Selections"
+								data={ this.props.dinnerData }
+							/>
+						</Paper>
+					</Col>
+				</Row>
+		</Grid>
+		</div>
+
     );
   }
 };
@@ -79,7 +108,9 @@ export class GuestManagement extends Component {
 GuestManagement.propTypes = propTypes;
 
 const mapStateToProps = state => ({
-  guests: getGuests(state)
+	guests: getGuests(state),
+	beverageData: getBeverageSelectionData(state),
+	dinnerData: getDinnerSelectionData(state)
 });
 
 const mapDispatchToProps = {
