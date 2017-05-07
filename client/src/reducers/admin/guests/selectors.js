@@ -74,3 +74,34 @@ export const getDinnerSelectionData = createSelector(
 		});
 	}
 );
+
+export const getIceCreamSelectionData = createSelector(
+	state => {
+		return state.admin.guests
+	},
+	guests => {
+		const buckets = guests.all.reduce((acc, guestId) => {
+			const guest = guests.byId[guestId];
+			const selections = guest.iceCreamSelections;
+
+			if (selections) {
+				const iceCreams = Object.keys(selections);
+				iceCreams.forEach(ic => {
+					acc[ic].value += 1;
+				});
+			}
+
+			return acc;
+		}, {
+			STRAWBERRY: { name: 'Strawberry', value: 0 }, 
+			MINTCHOCCHIP: { name: 'Mint Chocolate Chip', value: 0 },
+			COOKIES: { name: 'Cookie Dough', value: 0 }, 
+			VANILLA: { name: 'Vanilla', value: 0 }, 
+			GROSS: { name: 'Gross', value: 0 }		
+		});
+
+		return Object.keys(buckets).map(key => {
+			return buckets[key];
+		});
+	}
+);

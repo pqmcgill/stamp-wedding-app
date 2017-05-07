@@ -5,7 +5,8 @@ import { Grid, Col, Row } from 'react-flexbox-grid-aphrodite';
 import { 
 	getGuests, 
 	getDinnerSelectionData, 
-	getBeverageSelectionData 
+	getBeverageSelectionData,
+	getIceCreamSelectionData
 } from '../../reducers/admin/guests/selectors'
 import AddGuestForm from './addGuestForm';
 import MyPieChart from '../../components/MyPieChart';
@@ -50,6 +51,7 @@ export class GuestManagement extends Component {
           <TableRowColumn>{ guest.plusOneName }</TableRowColumn>
           <TableRowColumn>{ guest.plusOneRSVP }</TableRowColumn>
           <TableRowColumn>{ guest.affiliation }</TableRowColumn>
+          <TableRowColumn>{ guest.overnightSelection }</TableRowColumn>
           <TableRowColumn>
             <button className="delete" onClick={ this.handleDelete.bind(null, guest._id) }>x</button>
           </TableRowColumn>
@@ -71,6 +73,7 @@ export class GuestManagement extends Component {
               <TableHeaderColumn>Plus One Name</TableHeaderColumn>
               <TableHeaderColumn>Plus One RSVP'd</TableHeaderColumn>
               <TableHeaderColumn>Affiliation</TableHeaderColumn>
+              <TableHeaderColumn>Overnight</TableHeaderColumn>
               <TableHeaderColumn></TableHeaderColumn>
             </TableRow>
           </TableHeader>
@@ -97,6 +100,14 @@ export class GuestManagement extends Component {
 							/>
 						</Paper>
 					</Col>
+					<Col xs={12} sm={6} md={6} lg={6}>
+						<Paper className='guestManagement' zDepth={1}>
+							<MyPieChart 
+								name="Ice Cream Selections"
+								data={ this.props.iceCreamData }
+							/>
+						</Paper>
+					</Col>
 				</Row>
 		</Grid>
 		</div>
@@ -110,7 +121,8 @@ GuestManagement.propTypes = propTypes;
 const mapStateToProps = state => ({
 	guests: getGuests(state),
 	beverageData: getBeverageSelectionData(state),
-	dinnerData: getDinnerSelectionData(state)
+	dinnerData: getDinnerSelectionData(state),
+	iceCreamData: getIceCreamSelectionData(state)
 });
 
 const mapDispatchToProps = {
